@@ -11,6 +11,8 @@ import { UserSignIn } from "./pages/UserSignIn";
 
 import { UserSignUp } from "./pages/UserSignUp";
 import { DeveloperList } from "./pages/DeveloperList";
+import { AddDeveloperList } from "./pages/AddDeveloperList";
+
 
 
 
@@ -30,6 +32,8 @@ function App() {
     <Route exact path="/user-signin" component={UserSignIn} />
       <Route exact path="/user-signup" component={UserSignUp} />
       <Route exact path="/developer-list" component={DeveloperList} />
+      <Route exact path="/add-developer-list" component={AddDeveloperList} />
+
 
     </>
   );
