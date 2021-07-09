@@ -11,7 +11,9 @@ import { UserSignIn } from "./pages/UserSignIn";
 
 import { UserSignUp } from "./pages/UserSignUp";
 import { DeveloperList } from "./pages/DeveloperList";
-import { AddDeveloperList } from "./pages/AddDeveloperList";
+
+import { DeveloperUpsert } from "./pages/DeveloperUpsert";
+import { AppNav } from "./pages/AppNav";
 
 
 
@@ -27,12 +29,14 @@ function App() {
   }
   return (
     <>
+      {authSuccessFromStorage === "1" && <AppNav />}
 
     <Route exact path="/" component={UserSignIn} />
     <Route exact path="/user-signin" component={UserSignIn} />
       <Route exact path="/user-signup" component={UserSignUp} />
       <Route exact path="/developer-list" component={DeveloperList} />
-      <Route exact path="/add-developer-list" component={AddDeveloperList} />
+      <Route exact path="/developer-upsert" component={DeveloperUpsert} />
+
 
 
     </>
