@@ -8,6 +8,7 @@ import {
 } from "../redux/DeveloperReducer";
 import { AppNav } from "./AppNav";
 
+
 export const DeveloperList = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export const DeveloperList = () => {
           </tr>
         </thead>
         <tbody>
-          {state.developer.developerList.map((item, index) => (
+          {state.developer?.developerList ?.map((item, index) => (
             <tr key={index}>
               <th scope="row">{item.id}</th>
               <td>{item.name}</td>

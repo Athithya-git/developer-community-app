@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  cretaeDeveloperAction,
+  createDeveloperAction,
   updateDeveloperAction,
 } from "../redux/DeveloperReducer";
 //import { AppNav } from "./AppNav";
@@ -14,10 +14,10 @@ export const DeveloperUpsert = () => {
 
   const formEl = useRef();
 
-  const [name, setName] = useState(state.developer.uref.name);
-  const [userId, setUserId] = useState(state.developer.uref.userId);
-  const [skillLevel, setSkillLevel] = useState(state.developer.uref.skillLevel);
-  const [memberSince, setMemberSince] = useState(state.developer.uref.memberSince);
+  const [name, setName] = useState(state.developer?.uref?.name);
+  const [userId, setUserId] = useState(state.developer?.uref?.userId);
+  const [skillLevel, setSkillLevel] = useState(state.developer?.uref?.skillLevel);
+  const [memberSince, setMemberSince] = useState(state.developer?.uref?.memberSince);
 
   const updateName = (e) => setName(e.target.value);
   const updateUserId = (e) => setUserId(e.target.value);
@@ -34,7 +34,7 @@ export const DeveloperUpsert = () => {
     const isFormValid = formEl.current.checkValidity();
     if (isFormValid) {
       dispatch(
-        cretaeDeveloperAction({
+        createDeveloperAction({
           name,
           userId,
           skillLevel,
@@ -82,14 +82,14 @@ export const DeveloperUpsert = () => {
   return (
     <div>
       <div className="alert alert-secondary">
-        {state.employee.uref.id ? (
+        {state.developer?.uref?.id ? (
           <h5>Developer Update</h5>
         ) : (
           <h5>Developer Create</h5>
         )}
       </div>
 
-      {state.developer.progress && (
+      {state.developer?.progress && (
         <div className="mx-4 alert alert-success">Operation Success</div>
       )}
 
@@ -148,7 +148,7 @@ export const DeveloperUpsert = () => {
 
 
         <div>
-          {state.employee.uref.id ? (
+          {state.developer?.uref?.id ? (
             <input
               type="button"
               onClick={updateDeveloper}

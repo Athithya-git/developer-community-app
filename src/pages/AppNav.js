@@ -18,8 +18,7 @@ export const AppNav = () => {
   };
 
   const clearDeveloperURef = () => {
-    dispatch(updateRenderAction({}));
-    history.push("/developer-upsert");
+    dispatch(updateRenderAction({}));    history.push("/developer-upsert");
   };
 
   return (
