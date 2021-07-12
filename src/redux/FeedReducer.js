@@ -44,7 +44,7 @@ export const createFeedAction = (payload) => {
 export const updateFeedAction = (payload) => {
   return async (dispatch) => {
     //MAKING THE SERVER CALL
-    const url = `http://localhost:8080/api/v1/feeds/get/${payload.id}`;
+    const url = `http://localhost:8080/api/v1/feeds/${payload.feedId}`;
     await axios.put(url, payload);
 
     //making the uref empty again
@@ -63,7 +63,7 @@ export const updateFeedAction = (payload) => {
 export const deleteFeedAction = (payload) => {
   return async (dispatch) => {
     //MAKE AN API/SERVER CALL
-    const url = `http://localhost:8080/api/v1/feeds/delete/${payload.id}`;
+    const url = `http://localhost:8080/api/v1/feeds/feedId/${payload.feedId}`;
     await axios.delete(url);
 
     //UPDATE THE UI TODO :: Fetch the updated list
