@@ -1,31 +1,26 @@
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createFeedAction, updateFeedAction } from "../redux/FeedReducer";
-
+import { createFeedAction }  from "../redux/FeedReducer";
 export const FeedUpsert = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  console.log(state);
   const formEl = useRef();
 
-  const [query, setQuery] = useState(state.feed.uref.query);
-  const [feedDate, setFeedDate] = useState(state.feed.uref.feedDate);
-  const [feedTime, setFeedTime] = useState(state.feed.uref.feedTime);
-  const [topic, setTopic] = useState(state.feed.uref.topic);
-
-  const [relevance, setRelevance] = useState(state.feed.uref.relevance);
-  const [totalComments, setTotalComments] = useState(
-    state.feed.uref.totalComments
-  );
-  const [likes, setLikes] = useState(state.feed.uref.relevance);
+  const [query, setQuery] = useState("");
+  const [feedDate, setFeedDate] = useState("");
+  const [feedTime, setFeedTime] = useState("");
+  const [topic, setTopic] = useState("");
+  const [relevance, setRelevance] = useState("");
+  const [totalComments, setTotalComments] = useState("");
+  const [likes, setLikes] = useState("");
 
   const updateQuery = (e) => setQuery(e.target.value);
   const updateFeedDate = (e) => setFeedDate(e.target.value);
   const updateFeedTime = (e) => setFeedTime(e.target.value);
   const updateTopic = (e) => setTopic(e.target.value);
-  // const updateRelevance = (e) => setRelevance(e.target.value);
-  // const updateTotalComments = (e) => setTotalComments(e.target.value);
+  //   const updateRelevance = (e) => setRelevance(e.target.value);
+  //   const updateTotalComments = (e) => setTotalComments(e.target.value);
   const updateLikes = (e) => setLikes(e.target.value);
 
   const updateRelevance = (e) => {
@@ -78,45 +73,16 @@ export const FeedUpsert = () => {
     }
   };
 
-  const updateFeed = (e) => {
-    e.preventDefault();
-
-    const isFormValid = formEl.current.checkValidity();
-    if (isFormValid) {
-      dispatch(
-        updateFeedAction({
-          id: state.feed.uref.id,
-          query,
-          feedDate,
-          feedTime,
-          topic,
-          relevance,
-          totalComments,
-          likes,
-        })
-      );
-
-      // clear the form
-      setQuery("");
-      setFeedDate("");
-      setFeedTime("");
-      setTopic("");
-      setRelevance("");
-      setTotalComments("");
-      setLikes("");
-    } else {
-      e.stopPropagation();
-      formEl.current.classList.add("was-validated");
-    }
-  };
   return (
     <div>
       <div className="alert alert-secondary">
-        {state.feed.uref.id ? <h5>Feed Update</h5> : <h5>Feed Create</h5>}
+        <h3>Feed Create</h3>
       </div>
 
-      {state.feed.progress && (
-        <div className="mx-4 alert alert-success">Operation Success</div>
+      {state.progress && (
+        <div className="mx-4 alert alert-success">
+          Feed Created Successfully
+        </div>
       )}
 
       <form ref={formEl} className="mx-4 needs-validation " noValidate>
@@ -139,9 +105,7 @@ export const FeedUpsert = () => {
             value={feedDate}
             onChange={updateFeedDate}
             className="form-control form-control-lg mb-1"
-            placeholder="Select the Feed Date"
-            // minLength="3"
-            // maxLength="30"
+            placeholder="Enter the Feed Date"
             required
           />
         </div>
@@ -152,9 +116,7 @@ export const FeedUpsert = () => {
             value={feedTime}
             onChange={updateFeedTime}
             className="form-control form-control-lg mb-1"
-            placeholder="Select Feed Time"
-            // minLength="3"
-            // maxLength="30"
+            placeholder="Enter the Feed Time"
             required
           />
         </div>
@@ -167,7 +129,7 @@ export const FeedUpsert = () => {
             className="form-control form-control-lg mb-1"
             placeholder="Enter the Topic"
             minLength="3"
-            maxLength="100"
+            maxLength="30"
             required
           />
         </div>
@@ -178,9 +140,8 @@ export const FeedUpsert = () => {
             value={relevance}
             onChange={updateRelevance}
             className="form-control form-control-lg mb-1"
-            placeholder="Enter the Relevance percentage"
-            // minLength="6"
-            maxLength="3"
+            placeholder="Enter the percentage Relevance"
+            maxLength="2"
             required
           />
         </div>
@@ -191,9 +152,7 @@ export const FeedUpsert = () => {
             value={totalComments}
             onChange={updateTotalComments}
             className="form-control form-control-lg mb-1"
-            placeholder="Enter the total comments"
-            // minLength="10"
-            maxLength="100"
+            placeholder="Enter the number of comments"
             required
           />
         </div>
@@ -204,29 +163,18 @@ export const FeedUpsert = () => {
             value={likes}
             onChange={updateLikes}
             className="form-control form-control-lg mb-1"
-            placeholder="Enter to Like"
-            // minLength="10"
-            // maxLength="100"
+            placeholder="Enter a Like"
             required
           />
         </div>
 
         <div>
-          {state.feed.uref.id ? (
-            <input
-              type="button"
-              onClick={updateFeed}
-              value="Update Feed"
-              className="btn btn-lg btn-secondary w-100"
-            />
-          ) : (
-            <input
-              type="button"
-              onClick={addNewFeed}
-              value="Add Feed"
-              className="btn btn-lg btn-secondary w-100"
-            />
-          )}
+          <input
+            type="button"
+            onClick={addNewFeed}
+            value="Add Feed"
+            className="btn btn-lg btn-secondary w-100"
+          />
         </div>
       </form>
     </div>

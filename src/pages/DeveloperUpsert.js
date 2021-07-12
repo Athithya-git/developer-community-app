@@ -80,7 +80,7 @@ export const DeveloperUpsert = () => {
     if (isFormValid) {
       dispatch(
         updateDeveloperAction({
-          id: state.developer.uref.id,
+          devId: state.developer.uref.devId,
           name,
           userId,
           skillLevel,
@@ -110,7 +110,7 @@ export const DeveloperUpsert = () => {
   return (
     <div>
       <div className="alert alert-secondary">
-        {state.developer.uref.id ? (
+        {state.developer.uref.devId ? (
           <h5>Developer Update</h5>
         ) : (
           <h5>Developer Create</h5>
@@ -223,19 +223,21 @@ export const DeveloperUpsert = () => {
           />
         </div>
         <div>
-          {state.developer.uref.id ? (
-           <input
-           type="button"
-           onClick={addNewDeveloper}
-           value="Add Developer"
-           className="btn btn-lg btn-secondary w-100"
-         />
+          {state.developer.uref.devId ? (
+          
+         <input
+            type="button"
+            onClick={updateDeveloper}
+            value="Update Developer"
+            className="btn btn-lg btn-secondary w-100"
+          />
+          
           ) : (
             
             <input
             type="button"
-            onClick={updateDeveloper}
-            value="Update Developer"
+            onClick={addNewDeveloper}
+            value="Add Developer"
             className="btn btn-lg btn-secondary w-100"
           />
           

@@ -52,6 +52,7 @@ export const DeveloperList = () => {
             <th scope = "col">totalFeeds</th>
             <th scope = "col">isVerified</th>
             <th scope = "col">isBlock</th>
+<th scope = "col">actions</th>
 
             
           </tr>
