@@ -19,7 +19,7 @@ export const DeveloperList = () => {
   }, []);
 
   const deleteRecord = (item) => {
-    console.log("DELETE RECORD", item.id);
+    console.log("DELETE RECORD", item.devId);
     // dispatch the call.
     dispatch(deleteDeveloperAction(item));
   };

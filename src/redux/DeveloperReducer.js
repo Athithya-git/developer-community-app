@@ -44,7 +44,7 @@ export const createDeveloperAction = (payload) => {
 export const updateDeveloperAction = (payload) => {
   return async (dispatch) => {
     // making the server call.
-    const url = `http://localhost:8080/api/v1/developers/devId/${payload.id}`;
+    const url = `http://localhost:8080/api/v1/developers/${payload.devId}`;
     await axios.put(url, payload);
 
     // making the uref empty again.

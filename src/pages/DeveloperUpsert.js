@@ -14,16 +14,28 @@ export const DeveloperUpsert = () => {
 
   const formEl = useRef();
 
-  const [name, setName] = useState(state.developer?.uref?.name);
-  const [userId, setUserId] = useState(state.developer?.uref?.userId);
-  const [skillLevel, setSkillLevel] = useState(state.developer?.uref?.skillLevel);
-  const [memberSince, setMemberSince] = useState(state.developer?.uref?.memberSince);
+  const [name, setName] = useState(state.developer.uref.name);
+  const [userId, setUserId] = useState(state.developer.uref.userId);
+  const [skillLevel, setSkillLevel] = useState(state.developer.uref.skillLevel);
+  const [memberSince, setMemberSince] = useState(state.developer.uref.memberSince);
+  const [isBlocked, setIsBlocked] = useState(state.developer.uref.isBlocked);
+  const [isVerified, setIsVerified] = useState(state.developer.uref.isVerified);
+  const [reputation, setReputation] = useState(state.developer.uref.reputation);
+  const [totalFeeds, setTotalFeeds] = useState(state.developer.uref.totalFeeds);
+
+
+
+
 
   const updateName = (e) => setName(e.target.value);
   const updateUserId = (e) => setUserId(e.target.value);
   const updateSkillLevel = (e) => setSkillLevel(e.target.value);
   const updateMemberSince= (e) => setMemberSince(e.target.value);
-  
+  const updateIsBlocked= (e) => setIsBlocked(e.target.value);
+  const updateIsVerified= (e) => setIsVerified(e.target.value);
+  const updateReputation= (e) => setReputation(e.target.value);
+  const updateTotalFeeds= (e) => setTotalFeeds(e.target.value);
+
 
   const addNewDeveloper = (e) => {
     // WRITE LOGIC FOR THE VALIDATION :: FORM_ELEMENT / FORM_TAG
@@ -39,6 +51,10 @@ export const DeveloperUpsert = () => {
           userId,
           skillLevel,
           memberSince,
+          isBlocked,
+          isVerified,
+          reputation,
+          totalFeeds,
         })
       );
 
@@ -47,6 +63,10 @@ export const DeveloperUpsert = () => {
       setUserId("");
       setSkillLevel("");
       setMemberSince("");
+      setIsBlocked("");
+      setIsVerified("");
+      setReputation("");
+      setTotalFeeds("");
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -65,6 +85,10 @@ export const DeveloperUpsert = () => {
           userId,
           skillLevel,
           memberSince,
+          isBlocked,
+          isVerified,
+          reputation,
+          totalFeeds,
         })
       );
 
@@ -73,6 +97,10 @@ export const DeveloperUpsert = () => {
       setUserId("");
       setSkillLevel("");
       setMemberSince("");
+      setIsBlocked("");
+      setIsVerified("");
+      setReputation("");
+      setTotalFeeds("");
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -145,8 +173,55 @@ export const DeveloperUpsert = () => {
             required
           />
         </div>
+        <div>
+          <input
+            type="text"
+            value={isBlocked}
+            onChange={updateIsBlocked}
+            className="form-control form-control-lg mb-1"
+            placeholder="Enter is Blocked"
+            minLength="2"
+            maxLength="30"
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            value={isVerified}
+            onChange={updateIsVerified}
+            className="form-control form-control-lg mb-1"
+            placeholder="Enter is verified"
+            minLength="2"
+            maxLength="30"
+            required
+          />
+        </div>
 
-
+        <div>
+          <input
+            type="number"
+            value={reputation}
+            onChange={updateReputation}
+            className="form-control form-control-lg mb-1"
+            placeholder="Enter Reputation"
+            minLength="0"
+            maxLength="30"
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="number"
+            value={totalFeeds}
+            onChange={updateTotalFeeds}
+            className="form-control form-control-lg mb-1"
+            placeholder="Enter total feeds"
+            minLength="0"
+            maxLength="30"
+            required
+          />
+        </div>
         <div>
           {state.developer?.uref?.id ? (
             <input

@@ -14,7 +14,8 @@ import { DeveloperList } from "./pages/DeveloperList";
 
 import { DeveloperUpsert } from "./pages/DeveloperUpsert";
 import { AppNav } from "./pages/AppNav";
-
+import { FeedList } from "./pages/FeedList";
+import { FeedUpsert } from "./pages/FeedUpsert";
 
 
 
@@ -36,6 +37,8 @@ function App() {
       <Route exact path="/user-signup" component={UserSignUp} />
       <Route exact path="/developer-list" component={DeveloperList} />
       <Route exact path="/developer-upsert" component={DeveloperUpsert} />
+      <Route exact path="/feed-upsert" component={FeedUpsert} />
+      <Route exact path="/feed-list" component={FeedList} />
 
 
 

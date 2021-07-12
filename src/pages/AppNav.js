@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { updateRenderAction } from "../redux/DeveloperReducer";
 import { signOutAction } from "../redux/UserReducer";
+import { updateRenderAction1 } from "../redux/FeedReducer";
 
 export const AppNav = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,12 @@ export const AppNav = () => {
   };
 
   const clearDeveloperURef = () => {
-    dispatch(updateRenderAction({}));    history.push("/developer-upsert");
+    dispatch(updateRenderAction({}));    
+    history.push("/developer-upsert");
+  };
+  const clearFeedUref1 = () => {
+    dispatch(updateRenderAction1({}));
+    history.push("/feed-upsert");
   };
 
   return (
@@ -35,6 +41,10 @@ export const AppNav = () => {
           <Nav.Link onClick={clearDeveloperURef}>Developer Upsert</Nav.Link>
           <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
         </Nav>
+        <Nav.Link as={Link} to="/feed-list">
+            Feed List
+          </Nav.Link>
+          <Nav.Link onClick={clearFeedUref1}>Feed Upsert</Nav.Link>
       </Navbar.Collapse>
     </Navbar>
   );
