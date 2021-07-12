@@ -39,9 +39,12 @@ export const UserSignUp = () => {
   };
 
   return (
-    <div
+    <div style={{ backgroundImage: "url(1.jpeg)", width:"100vwh",height: "100vh" ,flex: "1",
+    justifyContent: 'center',
+    alignItems: 'center',
+    }}
       className="bg-dark d-flex justify-content-center align-items-center"
-      style={{ height: "100vh" }}
+      
     >
       <div className="w-50">
         <h2 className="text-center alert alert-info">

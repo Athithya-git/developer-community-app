@@ -41,9 +41,12 @@ export const UserSignIn = () => {
   }
 
   return (
-    <div
+    <div style={{ backgroundImage: "url(2.jpeg)", width:"100vwh",height: "100vh" ,flex: "1",
+    justifyContent: 'center',
+    alignItems: 'center',
+    }}
       className="bg-dark d-flex justify-content-center align-items-center"
-      style={{ height: "100vh" }}
+      
     >
       <div className="w-50">
         <h1 className="text-center alert alert-info">Developer Community Sign</h1>

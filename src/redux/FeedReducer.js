@@ -28,7 +28,7 @@ export const getAllFeedAction = () => {
 export const createFeedAction = (payload) => {
   return async (dispatch) => {
     //MAKING THE CALL
-    const url = `http://localhost:8080/api/v1/feeds/post`;
+    const url = `http://localhost:8080/api/v1/feeds`;
     await axios.post(url, payload);
 
     //UPDATE THE UI-TODO

@@ -110,14 +110,14 @@ export const DeveloperUpsert = () => {
   return (
     <div>
       <div className="alert alert-secondary">
-        {state.developer?.uref?.id ? (
+        {state.developer.uref.id ? (
           <h5>Developer Update</h5>
         ) : (
           <h5>Developer Create</h5>
         )}
       </div>
 
-      {state.developer?.progress && (
+      {state.developer.progress && (
         <div className="mx-4 alert alert-success">Operation Success</div>
       )}
 
@@ -223,20 +223,22 @@ export const DeveloperUpsert = () => {
           />
         </div>
         <div>
-          {state.developer?.uref?.id ? (
-            <input
-              type="button"
-              onClick={updateDeveloper}
-              value="Update Developer"
-              className="btn btn-lg btn-secondary w-100"
-            />
+          {state.developer.uref.id ? (
+           <input
+           type="button"
+           onClick={addNewDeveloper}
+           value="Add Developer"
+           className="btn btn-lg btn-secondary w-100"
+         />
           ) : (
+            
             <input
-              type="button"
-              onClick={addNewDeveloper}
-              value="Add Developer"
-              className="btn btn-lg btn-secondary w-100"
-            />
+            type="button"
+            onClick={updateDeveloper}
+            value="Update Developer"
+            className="btn btn-lg btn-secondary w-100"
+          />
+          
           )}
         </div>
       </form>
