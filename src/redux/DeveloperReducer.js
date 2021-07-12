@@ -81,7 +81,8 @@ export function DeveloperReducer(state = initState, action) {
       return { ...state, developerList: action.payload };
     case PROGRESS_ACTION_TYPE:
       return { ...state, progress: action.payload };
-
+      case DEVELOPER_UPDATE_RENDER_ACTION_TYPE:
+        return { ...state, uref: action.payload };
     default:
       return state;
   }

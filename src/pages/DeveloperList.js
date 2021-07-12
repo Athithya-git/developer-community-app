@@ -48,16 +48,26 @@ export const DeveloperList = () => {
             <th scope="col">name</th>
             <th scope="col">userId</th>
             <th scope="col">memberSince</th>
+            <th scope = "col">reputation</th>
+            <th scope = "col">totalFeeds</th>
+            <th scope = "col">isVerified</th>
+            <th scope = "col">isBlock</th>
+
             
           </tr>
         </thead>
         <tbody>
-          {state.developer?.developerList ?.map((item, index) => (
+          {state.developer.developerList.map((item, index) => (
             <tr key={index}>
               <th scope="row">{item.id}</th>
               <td>{item.name}</td>
               <td>{item.userId}</td>
               <td>{item.memberSince}</td>
+              <td>{item.reputation}</td>
+              <td>{item.totalFeeds}</td>
+              <td>{item.isVerified}</td>
+              <td>{item.isBlock}</td>
+
               <td>
                 <input
                   type="button"

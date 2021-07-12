@@ -12,7 +12,7 @@ import { DeveloperReducer } from "./DeveloperReducer";
 
   const rootReducer = combineReducers({
     user: UserReducer,
-    DeveloperReducer: DeveloperReducer,
+    developer: DeveloperReducer,
 
   });
   
