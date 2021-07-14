@@ -35,21 +35,21 @@ export const DeveloperList = () => {
   return (
     <div>
       <div className="alert alert-secondary mb-0">
-        <h3> Developer List</h3>
+        <h3> DEVELOPER LIST</h3>
       </div>
 
       <table className="table">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">Dev ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">UserId</th>
-            <th scope="col">Member Since</th>
-            <th scope = "col">Reputation</th>
-            <th scope = "col">Total Feeds</th>
-            <th scope = "col">Is Verified</th>
-            <th scope = "col">Is Block</th>
-            <th scope = "col">Actions</th>
+            <th scope="col">DEVELOPER ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">USER ID</th>
+            <th scope="col">MEMBER SINCE</th>
+            <th scope = "col">REPUTATION</th>
+            <th scope = "col">TOTAL FEEDS</th>
+            <th scope = "col">IS VERIFIED</th>
+            <th scope = "col">IS BLOCK</th>
+            <th scope = "col">ACTIONS</th>
 
             
           </tr>

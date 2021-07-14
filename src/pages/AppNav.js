@@ -26,10 +26,14 @@ export const AppNav = () => {
     dispatch(updateRenderAction1({}));
     history.push("/feed-upsert");
   };
+  const clearResponseUref = () => {
+    dispatch(updateRenderAction({}));
+    history.push("/response-upsert");
+  };
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="#home">Developer COMMUNITY APP</Navbar.Brand>
+      <Navbar.Brand href="#home">DEVELOPER COMMUNITY APP</Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -44,6 +48,19 @@ export const AppNav = () => {
             Feed List
           </Nav.Link>
           <Nav.Link onClick={clearFeedUref1}>Feed Upsert</Nav.Link>
+          <Nav.Link
+            as={Link}
+            to="/response-list"
+            className="  text-light mb-2 mr-4"
+          >
+            Response List
+          </Nav.Link>
+          <Nav.Link
+            onClick={clearResponseUref}
+            className="text-light mb-2 mr-2"
+          >
+            Response Upsert
+          </Nav.Link> 
           <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
 
       </Navbar.Collapse>

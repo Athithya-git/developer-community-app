@@ -111,9 +111,9 @@ export const DeveloperUpsert = () => {
     <div>
       <div className="alert alert-secondary">
         {state.developer.uref.devId ? (
-          <h5>Developer Update</h5>
+          <h5>DEVELOPER UPDATE</h5>
         ) : (
-          <h5>Developer Create</h5>
+          <h5>DEVELOPER CREATE</h5>
         )}
       </div>
 

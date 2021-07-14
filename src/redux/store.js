@@ -9,11 +9,13 @@ import { DeveloperReducer } from "./DeveloperReducer";
 
 import { UserReducer } from "./UserReducer";
 import { FeedReducer } from "./FeedReducer";
+import { ResponseReducer } from "./ResponseReducer";
 
 const rootReducer = combineReducers({
   user: UserReducer,
   developer: DeveloperReducer,
   feed: FeedReducer,
+  response: ResponseReducer,
 
 });
 
