@@ -37,23 +37,23 @@ export const FeedList = () => {
   return (
     <div>
       <div className="alert alert-secondary mb-0">
-        <h3>Feed List</h3>
+        <h3>FEED LIST</h3>
       </div>
 
       <table className="table">
         <thead className="thead-dark">
           <tr>
             <th scope="col">
-              <div className="mr-3">Feed Id</div>
+              <div className="mr-3">FEED ID</div>
             </th>
-            <th scope="col">Query</th>
-            <th scope="col">FeedDate</th>
-            <th scope="col">FeedTime</th>
-            <th scope="col">Topic</th>
-            <th scope="col">Relevance</th>
-            <th scope="col">TotalComments</th>
-            <th scope="col">Likes</th>
-            <th scope="col">Action</th>
+            <th scope="col">QUERY</th>
+            <th scope="col">FEED DATE</th>
+            <th scope="col">FEED TIME</th>
+            <th scope="col">TOPIC</th>
+            <th scope="col">REVELANCE</th>
+            <th scope="col">TOTAL COMMENTS</th>
+            <th scope="col">LIKES</th>
+            <th scope="col">ACTION</th>
           </tr>
         </thead>
         <tbody>

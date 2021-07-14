@@ -36,14 +36,14 @@ export const ResponseList = () => {
   return (
     <div>
       <div className="alert alert-secondary mb-0">
-        <h3>Response List</h3>
+        <h3>RESPONSE LIST</h3>
       </div>
 
       <table className="table">
         <thead className="thead-dark">
           <tr>
           <th scope="col">
-              <div className="mr-3">Response Id </div>
+              <div className="mr-3">RESPONSE ID </div>
             </th>
             <th scope="col">ANSWER</th>
             <th scope="col">RESPONSE DATE</th>

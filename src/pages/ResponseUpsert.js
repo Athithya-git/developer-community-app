@@ -101,7 +101,7 @@ const updateLikes = (e) => setLikes(e.target.value);
   return (
     <div>
       <div className="alert alert-secondary">
-        {state.response.uref.respId ? (<h5>Response Update</h5>) : (<h5>Response Create</h5>)}
+        {state.response.uref.respId ? (<h5>RESPONSE UPDATE</h5>) : (<h5>RESPONSE CREATE</h5>)}
       </div>
 
       {state.response.progress && (
