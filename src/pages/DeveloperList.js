@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
-    deleteDeveloperAction,
+    
   getAllDeveloperAction,
   updateRenderAction,
 } from "../redux/DeveloperReducer";
@@ -19,11 +19,7 @@ export const DeveloperList = () => {
     dispatch(getAllDeveloperAction());
   }, []);
 
-  const deleteRecord = (item) => {
-    console.log("DELETE RECORD", item.devId);
-    // dispatch the call.
-    dispatch(deleteDeveloperAction(item));
-  };
+  
 
   // 2
   const updateRecord = (item) => {
@@ -67,24 +63,18 @@ export const DeveloperList = () => {
               <td>{item.memberSince}</td>
               <td>{item.reputation}</td>
               <td>{item.totalFeeds}</td>
-              <td>{item.isVerified}</td>
-              <td>{item.isBlock}</td>
+              <td>{item.isVerified?"true":"false"}</td>
+              <td>{item.isBlock?"true":"false"}</td>
 
               <td>
                 <input
                   type="button"
-                  value="Update"
+                  value="Update ✍️"
                   className="btn btn-outline-secondary btn-sm  mr-1"
                   // onClick={updateRecord} :1
                   onClick={() => updateRecord(item)}
                 />
-                <input
-                  type="button"
-                  value="Delete"
-                  // onClick={deleteRecord}
-                  onClick={() => deleteRecord(item)}
-                  className="btn btn-outline-danger btn-sm"
-                />
+               
               </td>
             </tr>
           ))}

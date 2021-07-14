@@ -39,12 +39,13 @@ export const AppNav = () => {
             Developer List
           </Nav.Link>
           <Nav.Link onClick={clearDeveloperURef}>Developer Upsert</Nav.Link>
-          <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
         </Nav>
         <Nav.Link as={Link} to="/feed-list">
             Feed List
           </Nav.Link>
           <Nav.Link onClick={clearFeedUref1}>Feed Upsert</Nav.Link>
+          <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
+
       </Navbar.Collapse>
     </Navbar>
   );

@@ -59,16 +59,7 @@ export const updateDeveloperAction = (payload) => {
     }, 5000);
   };
 };
-export const deleteDeveloperAction = (payload) => {
-  return async (dispatch) => {
-    // MAKE AN API/SERVER CALL
-    const url = `http://localhost:8080/api/employee/${payload.id}`;
-    await axios.delete(url);
 
-    // Upate the UI TODO :: Fetch The Updated List
-    dispatch(getAllDeveloperAction());
-  };
-};
 export const updateRenderAction = (payload) => {
   // ONLY UPDATEING THE UI
   // 5
