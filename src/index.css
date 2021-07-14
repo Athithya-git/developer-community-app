@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.sign-up-bg{
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+   width:100vwh;
+   height: 100vh ;
+   flex: 1;
+   justify-content: center;
+   align-items: center;
+ }

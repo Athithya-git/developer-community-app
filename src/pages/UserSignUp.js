@@ -39,24 +39,15 @@ export const UserSignUp = () => {
   };
 
   return (
-    <div style={{ backgroundImage: "url(1.jpeg)", width:"100vwh",height: "100vh" ,flex: "1",
-    justifyContent: 'center',
-    alignItems: 'center',
-    }}
-      className="bg-dark d-flex justify-content-center align-items-center"
+    <div style={{backgroundImage:"url(4.jpeg)" }}
+   className="sign-up-bg d-flex justify-content-center align-items-center " >
+ 
       
-    >
       <div className="w-50">
-        <h2 className="text-center alert alert-info">
-          Developer Community Register Here
+  
+        <h2 className="sign-in-bg text-center alert alert-dark">
+        📃  Developer Community Register Here  📃
         </h2>
-
-        {state.user.progress && (
-          <h6 className="text-center alert alert-success">
-            Registeratio Success!!
-          </h6>
-        )}
-
         <form ref={formEl} className="needs-validation" noValidate>
           <div>
             <input

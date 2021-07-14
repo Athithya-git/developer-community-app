@@ -41,21 +41,13 @@ export const UserSignIn = () => {
   }
 
   return (
-    <div style={{ backgroundImage: "url(2.jpeg)", width:"100vwh",height: "100vh" ,flex: "1",
-    justifyContent: 'center',
-    alignItems: 'center',
-    }}
-      className="bg-dark d-flex justify-content-center align-items-center"
-      
-    >
-      <div className="w-50">
-        <h1 className="text-center alert alert-info">Developer Community Sign</h1>
+    <div style={{ backgroundImage: "url(3.jpeg)",
+  }} 
+    className=" sign-up-bg bg-dark d-flex justify-content-center align-items-center"
 
-        {state.user.authFailure && (
-          <h6 className="text-center alert alert-danger">
-            Invalid Credentials
-          </h6>
-        )}
+  >
+    <div className="w-50">
+      <h1 className="text-center alert alert-warning ">🔑 Developer Community Sign  🔑</h1>
 
         <form ref={formEl} className="needs-validation" noValidate>
           <div>

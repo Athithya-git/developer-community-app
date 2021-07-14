@@ -4,37 +4,45 @@ const initState = {
   feedList: [],
   progress: false,
 
-  //onClick of update button, the key will be updated
   uref: {},
 };
 
-//ACTION TYPES :: FEED:ENTITY
+// ACTION TYPES
+
 const PROGRESS_ACTION_TYPE = "PROGRESS_ACTION_TYPE";
 const FEED_GET_ALL_ACTION_TYPE = "FEED_GET_ALL_ACTION_TYPE";
+
 const FEED_UPDATE_RENDER_ACTION_TYPE = "FEED_UPDATE_RENDER_ACTION_TYPE";
 
-//ACTIONS :: FEED
+const FEED_GET_BY_ID_ACTION_TYPE = "FEED_GET_BY_ID_ACTION_TYPE";
+const FEED_CREATE_ACTION_TYPE = "FEED_CREATE_ACTION_TYPE";
+const FEED_UPDATE_ACTION_TYPE = "FEED_UPDATE_ACTION_TYPE";
+const FEED_DELETE_ACTION_TYPE = "FEED_DELETE_ACTION_TYPE";
+
+// ACTIONS
 export const getAllFeedAction = () => {
   return async (dispatch) => {
-    //API CALL :: FETCH RECORDS
-    const url = `http://localhost:8080/api/v1/feeds`;
+    // API CALL :: FETCH RECORDS
+    const url = `http://localhost:8080/api/v1/feeds/get`;
     const response = await axios.get(url);
 
-    //UI Update
+    console.log(response);
+
+    // UI UPDATE
     dispatch({ type: "FEED_GET_ALL_ACTION_TYPE", payload: response.data });
   };
 };
 
 export const createFeedAction = (payload) => {
   return async (dispatch) => {
-    //MAKING THE CALL
-    const url = `http://localhost:8080/api/v1/feeds`;
+    //MAKING THE SERVER CALL
+    const url = `http://localhost:8080/api/v1/feeds/post`;
     await axios.post(url, payload);
 
-    //UPDATE THE UI-TODO
+    // update the ui. TODO
     dispatch({ type: PROGRESS_ACTION_TYPE, payload: true });
 
-    //AFTER 5 SECONDS PROGRESS:: FALSE AGAIN
+    //after 5 seconds PROGRESS :: FALSE AGAIN
     setTimeout(() => {
       dispatch({ type: PROGRESS_ACTION_TYPE, payload: false });
     }, 5000);
@@ -44,7 +52,7 @@ export const createFeedAction = (payload) => {
 export const updateFeedAction = (payload) => {
   return async (dispatch) => {
     //MAKING THE SERVER CALL
-    const url = `http://localhost:8080/api/v1/feeds/${payload.feedId}`;
+    const url = `http://localhost:8080/api/v1/feeds/get/${payload.id}`;
     await axios.put(url, payload);
 
     //making the uref empty again
@@ -63,7 +71,7 @@ export const updateFeedAction = (payload) => {
 export const deleteFeedAction = (payload) => {
   return async (dispatch) => {
     //MAKE AN API/SERVER CALL
-    const url = `http://localhost:8080/api/v1/feeds/feedId/${payload.feedId}`;
+    const url = `http://localhost:8080/api/v1/feeds/delete/${payload.id}`;
     await axios.delete(url);
 
     //UPDATE THE UI TODO :: Fetch the updated list

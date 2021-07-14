@@ -13,6 +13,7 @@ export const DeveloperList = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  //const {UserSignIn} = require('./UserSignIn.js');
 
   useEffect(() => {
     dispatch(getAllDeveloperAction());
@@ -44,15 +45,15 @@ export const DeveloperList = () => {
       <table className="table">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">name</th>
-            <th scope="col">userId</th>
-            <th scope="col">memberSince</th>
-            <th scope = "col">reputation</th>
-            <th scope = "col">totalFeeds</th>
-            <th scope = "col">isVerified</th>
-            <th scope = "col">isBlock</th>
-<th scope = "col">actions</th>
+            <th scope="col">Dev ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">UserId</th>
+            <th scope="col">Member Since</th>
+            <th scope = "col">Reputation</th>
+            <th scope = "col">Total Feeds</th>
+            <th scope = "col">Is Verified</th>
+            <th scope = "col">Is Block</th>
+            <th scope = "col">Actions</th>
 
             
           </tr>
@@ -60,7 +61,7 @@ export const DeveloperList = () => {
         <tbody>
           {state.developer.developerList.map((item, index) => (
             <tr key={index}>
-              <th scope="row">{item.id}</th>
+              <th scope="row">{item.devId}</th>
               <td>{item.name}</td>
               <td>{item.userId}</td>
               <td>{item.memberSince}</td>
