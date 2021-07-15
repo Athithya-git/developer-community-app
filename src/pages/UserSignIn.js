@@ -11,12 +11,11 @@ export const UserSignIn = () => {
   let history = useHistory();
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
 
 
   const updateUserId = (e) => setUserId(e.target.value);
   const updatePassword = (e) => setPassword(e.target.value);
-  const updateRole = (e) => setRole(e.target.value);
+  
 
 
   const signInUser = (e) => {
@@ -27,7 +26,7 @@ export const UserSignIn = () => {
 
     if (isFormValid) {
       // dispatch the call to redux ::for API CALL
-      dispatch(authenticateUserAction({ userId, password, role }));
+      dispatch(authenticateUserAction({ userId, password }));
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -71,16 +70,7 @@ export const UserSignIn = () => {
               required
             />
           </div>
-          <div>
-            <input
-              type="text"
-              value={role}
-              onChange={updateRole}
-              placeholder="Enter role"
-              className="form-control form-control-lg mb-2"
-              required
-            />
-          </div>
+         
 
           <div>
             <input

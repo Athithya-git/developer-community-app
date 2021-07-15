@@ -10,12 +10,11 @@ export const UserSignUp = () => {
 
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
  
 
   const updateUserId = (e) => setUserId(e.target.value);
   const updatePassword = (e) => setPassword(e.target.value);
-  const updateRole = (e) => setRole(e.target.value);
+
   
 
   const signUpHere = (e) => {
@@ -26,12 +25,11 @@ export const UserSignUp = () => {
 
     if (isFormValid) {
       // dispatch the call to redux ::for API CALL
-      dispatch(userCreateAction({ userId, password, role }));
+      dispatch(userCreateAction({ userId, password}));
 
       // clear the form
       setUserId("");
       setPassword("");
-      setRole("");
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -71,16 +69,7 @@ export const UserSignUp = () => {
             />
           </div>
 
-          <div>
-            <input
-              type="text"
-              value={role}
-              onChange={updateRole}
-              placeholder="Enter Role"
-              className="form-control form-control-lg mb-1"
-              required
-            />
-          </div>
+          
 
           
 
@@ -98,14 +87,14 @@ export const UserSignUp = () => {
               <input
                 type="button"
                 value="SIGN IN HERE"
-                className="btn btn-link w-100"
+                className="btn btn-link btn-lg w-100"
               />
             </Link>
             <Link to="/main-page">
       <input
         type="button"
         value="GO TO MAIN PAGE"
-        className="btn   btn-link w-100"
+        className="btn  btn-lg btn-link w-100"
       />
     </Link>
           </div>
