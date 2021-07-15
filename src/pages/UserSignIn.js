@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { authenticateUserAction } from "../redux/UserReducer";
 
+
 export const UserSignIn = () => {
   const formEl = useRef();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
   let history = useHistory();
-
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
@@ -99,6 +99,13 @@ export const UserSignIn = () => {
                 className="btn btn-lg btn-link w-100"
               />
             </Link>
+            <Link to="/main-page">
+      <input
+        type="button"
+        value="GO TO MAIN PAGE"
+        className="btn  btn-link w-100"
+      />
+    </Link>
           </div>
         </form>
       </div>

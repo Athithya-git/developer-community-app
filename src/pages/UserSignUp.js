@@ -39,7 +39,7 @@ export const UserSignUp = () => {
   };
 
   return (
-    <div style={{backgroundImage:"url(4.jpeg)" }}
+    <div style={{backgroundImage:"url(8.gif)" }}
    className="sign-up-bg d-flex justify-content-center align-items-center " >
  
       
@@ -97,10 +97,17 @@ export const UserSignUp = () => {
             <Link to="/user-signin">
               <input
                 type="button"
-                value="Signin Here"
+                value="SIGN IN HERE"
                 className="btn btn-link w-100"
               />
             </Link>
+            <Link to="/main-page">
+      <input
+        type="button"
+        value="GO TO MAIN PAGE"
+        className="btn   btn-link w-100"
+      />
+    </Link>
           </div>
         </form>
       </div>

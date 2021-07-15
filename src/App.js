@@ -18,6 +18,8 @@ import { FeedList } from "./pages/FeedList";
 import { FeedUpsert } from "./pages/FeedUpsert";
 import { ResponseList } from "./pages/ResponseList";
 import { ResponseUpsert } from "./pages/ResponseUpsert";
+import { MainPage } from './pages/MainPage';
+import { AdminPage } from './pages/AdminPage';
 
 
 function App() {
@@ -27,13 +29,15 @@ function App() {
   
   const authSuccessFromStorage = localStorage.getItem("authSuccess");
   if (authSuccessFromStorage !== "1") {
-    history.push("/user-signin");
+    history.push("/main-page");
   }
   return (
     <>
       {authSuccessFromStorage === "1" && <AppNav />}
 
     <Route exact path="/" component={UserSignIn} />
+    <Route exact path="/main-page" component={MainPage} />
+    <Route exact path="/admin-page" component={AdminPage} />
     <Route exact path="/user-signin" component={UserSignIn} />
       <Route exact path="/user-signup" component={UserSignUp} />
       <Route exact path="/developer-list" component={DeveloperList} />

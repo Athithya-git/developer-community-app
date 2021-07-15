@@ -28,7 +28,7 @@ export const getAllDeveloperAction = () => {
 export const createDeveloperAction = (payload) => {
   return async (dispatch) => {
     // making the server call.
-    const url = `http://localhost:8080/api/v1/developers`;
+    const url = `http://localhost:8080/api/v1/add/developer/${payload.userId}`;
     await axios.post(url, payload);
 
     // update the ui. TODO

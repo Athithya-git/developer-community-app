@@ -7,13 +7,14 @@ import {
   updateRenderAction,
 } from "../redux/DeveloperReducer";
 import { AppNav } from "./AppNav";
+import { UserSignIn } from "./UserSignIn";
+
 
 
 export const DeveloperList = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  //const {UserSignIn} = require('./UserSignIn.js');
 
   useEffect(() => {
     dispatch(getAllDeveloperAction());
@@ -32,12 +33,15 @@ export const DeveloperList = () => {
     history.push("/developer-upsert");
   };
 
+
+
   return (
+    
     <div>
       <div className="alert alert-secondary mb-0">
         <h3> DEVELOPER LIST</h3>
       </div>
-
+      
       <table className="table">
         <thead className="thead-dark">
           <tr>
@@ -45,6 +49,7 @@ export const DeveloperList = () => {
             <th scope="col">NAME</th>
             <th scope="col">USER ID</th>
             <th scope="col">MEMBER SINCE</th>
+            <th scope = "col">SKILL LEVEL</th>
             <th scope = "col">REPUTATION</th>
             <th scope = "col">TOTAL FEEDS</th>
             <th scope = "col">IS VERIFIED</th>
@@ -61,6 +66,7 @@ export const DeveloperList = () => {
               <td>{item.name}</td>
               <td>{item.userId}</td>
               <td>{item.memberSince}</td>
+              <td>{item.skillLevel}</td>
               <td>{item.reputation}</td>
               <td>{item.totalFeeds}</td>
               <td>{item.isVerified?"true":"false"}</td>
