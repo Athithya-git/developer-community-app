@@ -64,7 +64,7 @@ export const DeveloperList = () => {
             <tr key={index}>
               <th scope="row">{item.devId}</th>
               <td>{item.name}</td>
-              <td>{item.userId}</td>
+              <td>{item.users.userId}</td>
               <td>{item.memberSince}</td>
               <td>{item.skillLevel}</td>
               <td>{item.reputation}</td>

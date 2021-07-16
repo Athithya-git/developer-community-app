@@ -8,29 +8,32 @@ export const MainPage = () => {
   
     >
         <div>
-        <h1 className="text-center text-danger font-family font-weight-bold alert  ">WELCOME TO DEVELOPER COMMUNITY APPLICATION</h1>
+        <h1 className="text-center text-light font-family font-weight-bold alert  ">WELCOME TO DEVELOPER COMMUNITY APPLICATION</h1>
+
     <Link to="/user-signin">
       <input
         type="button"
         value="LOGIN AS USER"
-        className="btn btn-primary rounded-pill btn-lg float-left w-50"
+        className="btn mr-3 mb-3  btn-outline-light rounded-pill btn-lg float-left w-25"
       />
     </Link>
-    <Link to="/admin-page">
+    
+
+    <Link to="/admin-signin">
       <input
         type="button"
         value="LOGIN AS ADMIN"
-        className="btn btn-primary rounded-pill btn-lg float-right w-50"
+        className="btn  mr-3 mb-3 btn-outline-light rounded-pill btn-lg float-right w-25"
       />
     </Link>
     <Link to="/user-signup">
               <input
                 type="button"
                 value="Register Here"
-                className="btn btn-lg btn-link w-100"
-              />
+                className="btn mx-auto btn-outline-warning rounded-pill btn-lg  w-100 "
+                />
             </Link>
-    </div>
+            </div>
     </div>
 
     );

@@ -20,6 +20,8 @@ import { ResponseList } from "./pages/ResponseList";
 import { ResponseUpsert } from "./pages/ResponseUpsert";
 import { MainPage } from './pages/MainPage';
 import { AdminPage } from './pages/AdminPage';
+import { AdminSignIn } from './pages/AdminSignIn';
+
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
     <Route exact path="/" component={UserSignIn} />
     <Route exact path="/main-page" component={MainPage} />
     <Route exact path="/admin-page" component={AdminPage} />
+    <Route exact path="/admin-signin" component={AdminSignIn} />
+
     <Route exact path="/user-signin" component={UserSignIn} />
       <Route exact path="/user-signup" component={UserSignUp} />
       <Route exact path="/developer-list" component={DeveloperList} />
