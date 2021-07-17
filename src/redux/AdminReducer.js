@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const initState = {
+  developerList: [],
   progress: false,
 
   // AUTH FAILS => TRUE
@@ -12,6 +13,8 @@ const initState = {
 const PROGRESS_ACTION_TYPE = "PROGRESS_ACTION_TYPE";
 const AUTH_FAILURE_ACTION_TYPE = "AUTH_FAILURE_ACTION_TYPE";
 const AUTH_SUCCESS_ACTION_TYPE = "AUTH_SUCCESS_ACTION_TYPE";
+const ADMIN_DEVELOPER_GET_ALL_ACTION_TYPE = "ADMIN_DEVELOPER_GET_ALL_ACTION_TYPE";
+const ADMIN_DEVELOPER_DELETE_ACTION_TYPE = "ADMIN_DEVELOPER_DELETE_ACTION_TYPE";
 
 
 
@@ -43,6 +46,31 @@ export const authenticateAdminAction = (payload) => {
     }
   };
 };
+
+// ACTIONS
+export const getAllAdminDeveloperAction = () => {
+  return async (dispatch) => {
+    // API CALL :: FETCH RECORDS
+    const url = `http://localhost:8080/api/v1/developers`;
+    const response = await axios.get(url);
+
+    // console.log(response);
+
+    // UI UPDATE
+    dispatch({ type: "DEVELOPER_GET_ALL_ACTION_TYPE", payload: response.data });
+  };
+};
+export const deleteAdminDeveloperAction = (payload) => {
+  return async (dispatch) => {
+    //MAKE AN API/SERVER CALL
+    const url = `http://localhost:8080/api/v1/admin/delete/${payload.devId}`;
+    await axios.delete(url);
+
+    //UPDATE THE UI TODO :: Fetch the updated list
+    dispatch(getAllAdminDeveloperAction());
+  };
+};
+
 // REDURE FOR STATE UPDTE
 export function AdminReducer(state = initState, action) {
     switch (action.type) {
@@ -52,6 +80,8 @@ export function AdminReducer(state = initState, action) {
         return { ...state, authFailure: action.payload };
       case AUTH_SUCCESS_ACTION_TYPE:
         return { ...state, authSuccess: action.payload };
+        case ADMIN_DEVELOPER_GET_ALL_ACTION_TYPE:
+      return { ...state, developerList: action.payload };
       default:
         return state;
     }
