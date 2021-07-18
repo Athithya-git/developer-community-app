@@ -20,7 +20,11 @@ import { ResponseList } from "./pages/ResponseList";
 import { ResponseUpsert } from "./pages/ResponseUpsert";
 import { MainPage } from './pages/MainPage';
 import { AdminPage } from './pages/AdminPage';
+import { AdminMainPage } from './pages/AdminMainPage';
+
 import { AdminSignIn } from './pages/AdminSignIn';
+import { AdminFeedList } from './pages/AdminFeedList';
+import { AdminResponseList } from './pages/AdminResponseList';
 
 
 
@@ -40,10 +44,16 @@ function App() {
     <Route exact path="/" component={UserSignIn} />
     <Route exact path="/main-page" component={MainPage} />
     <Route exact path="/admin-page" component={AdminPage} />
+    <Route exact path="/admin-feed-list" component={AdminFeedList} />
+    <Route exact path="/admin-response-list" component={AdminResponseList} />
+
+    <Route exact path="/admin-main-page" component={AdminMainPage} />
+
     <Route exact path="/admin-signin" component={AdminSignIn} />
 
     <Route exact path="/user-signin" component={UserSignIn} />
       <Route exact path="/user-signup" component={UserSignUp} />
+
       <Route exact path="/developer-list" component={DeveloperList} />
       <Route exact path="/developer-upsert" component={DeveloperUpsert} />
       <Route exact path="/feed-upsert" component={FeedUpsert} />

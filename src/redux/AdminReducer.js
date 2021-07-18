@@ -15,8 +15,12 @@ const AUTH_FAILURE_ACTION_TYPE = "AUTH_FAILURE_ACTION_TYPE";
 const AUTH_SUCCESS_ACTION_TYPE = "AUTH_SUCCESS_ACTION_TYPE";
 const ADMIN_DEVELOPER_GET_ALL_ACTION_TYPE = "ADMIN_DEVELOPER_GET_ALL_ACTION_TYPE";
 const ADMIN_DEVELOPER_DELETE_ACTION_TYPE = "ADMIN_DEVELOPER_DELETE_ACTION_TYPE";
+const ADMIN_FEED_GET_ALL_ACTION_TYPE = "ADMIN_FEED_GET_ALL_ACTION_TYPE";
 
+const ADMIN_FEED_DELETE_ACTION_TYPE = "ADMIN_FEED_DELETE_ACTION_TYPE";
+const ADMIN_RESPONSE_GET_ALL_ACTION_TYPE = "ADMIN_RESPONSE_GET_ALL_ACTION_TYPE";
 
+const ADMIN_RESPONSE_DELETE_ACTION_TYPE = "ADMIN_RESPONSE_DELETE_ACTION_TYPE";
 
 
 export const authenticateAdminAction = (payload) => {
@@ -51,7 +55,7 @@ export const authenticateAdminAction = (payload) => {
 export const getAllAdminDeveloperAction = () => {
   return async (dispatch) => {
     // API CALL :: FETCH RECORDS
-    const url = `http://localhost:8080/api/v1/developers`;
+    const url = `http://localhost:8080/api/admin/developers`;
     const response = await axios.get(url);
 
     // console.log(response);
@@ -63,14 +67,60 @@ export const getAllAdminDeveloperAction = () => {
 export const deleteAdminDeveloperAction = (payload) => {
   return async (dispatch) => {
     //MAKE AN API/SERVER CALL
-    const url = `http://localhost:8080/api/v1/admin/delete/${payload.devId}`;
+    const url = `http://localhost:8080/api/admin/devId/${payload.devId}`;
     await axios.delete(url);
 
     //UPDATE THE UI TODO :: Fetch the updated list
     dispatch(getAllAdminDeveloperAction());
   };
 };
+export const getAllAdminFeedAction = () => {
+  return async (dispatch) => {
+    // API CALL :: FETCH RECORDS
+    const url = `http://localhost:8080/api/admin/feeds`;
+    const response = await axios.get(url);
 
+    console.log(response);
+
+    // UI UPDATE
+    dispatch({ type: "ADMIN_FEED_GET_ALL_ACTION_TYPE", payload: response.data });
+  };
+};
+
+export const deleteAdminFeedAction = (payload) => {
+  return async (dispatch) => {
+    //MAKE AN API/SERVER CALL
+    const url = `http://localhost:8080/api/admin/delete/${payload.id}`;
+    await axios.delete(url);
+
+    //UPDATE THE UI TODO :: Fetch the updated list
+    dispatch(getAllAdminFeedAction());
+  };
+};
+
+// ACTIONS
+export const getAllAdminResponseAction = () => {
+  return async (dispatch) => {
+    // API CALL :: FETCH RECORDS
+    const url = `http://localhost:8080/api/admin/responses`;
+    const response = await axios.get(url);
+
+    // console.log(response);
+
+    // UI UPDATE
+    dispatch({ type: "ADMIN_RESPONSE_GET_ALL_ACTION_TYPE", payload: response.data });
+  };
+};
+export const deleteAdminResponseAction = (payload) => {
+  return async (dispatch) => {
+    // MAKE AN API/SERVER CALL
+    const url = `http://localhost:8080/api/admin/responses/respId/${payload.respId}`;
+    await axios.delete(url);
+
+    // Upate the UI TODO :: Fetch The Updated List
+    dispatch(getAllAdminResponseAction());
+  };
+};
 // REDURE FOR STATE UPDTE
 export function AdminReducer(state = initState, action) {
     switch (action.type) {
@@ -82,6 +132,10 @@ export function AdminReducer(state = initState, action) {
         return { ...state, authSuccess: action.payload };
         case ADMIN_DEVELOPER_GET_ALL_ACTION_TYPE:
       return { ...state, developerList: action.payload };
+      case ADMIN_FEED_GET_ALL_ACTION_TYPE:
+      return { ...state, feedList: action.payload };
+      case ADMIN_RESPONSE_GET_ALL_ACTION_TYPE:
+      return { ...state, responseList: action.payload };
       default:
         return state;
     }

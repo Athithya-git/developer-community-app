@@ -36,7 +36,7 @@ export const AdminSignIn = () => {
   // REACT ROUTE DOM
   if (state.admin.authSuccess === true) {
     // redirecting the user /developer-list page;
-    history.push("/admin-page");
+    history.push("/admin-main-page");
   }
 
   return (
