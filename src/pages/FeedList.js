@@ -47,12 +47,10 @@ export const FeedList = () => {
               <div className="mr-3">FEED ID</div>
             </th>
             <th scope="col">QUERY</th>
-            <th scope="col">FEED DATE</th>
-            <th scope="col">FEED TIME</th>
+            <th scope="col">FEED DATE TIME</th>
             <th scope="col">TOPIC</th>
             <th scope="col">REVELANCE</th>
             <th scope="col">TOTAL COMMENTS</th>
-            <th scope="col">LIKES</th>
             <th scope="col">ACTION</th>
           </tr>
         </thead>
@@ -61,12 +59,10 @@ export const FeedList = () => {
             <tr key={index}>
               <th scope="row">{item.id}</th>
               <td>{item.query}</td>
-              <td>{item.feedDate}</td>
-              <td>{item.feedTime}</td>
+              <td>{item.feedDateTime}</td>
               <td>{item.topic}</td>
               <td>{item.relevance}</td>
               <td>{item.totalComments}</td>
-              <td>{item.likes}</td>
               {/* <td>{state.counter}</td> */}
 
               <td>

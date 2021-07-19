@@ -51,9 +51,6 @@ export const DeveloperList = () => {
             <th scope="col">MEMBER SINCE</th>
             <th scope = "col">SKILL LEVEL</th>
             <th scope = "col">REPUTATION</th>
-            <th scope = "col">TOTAL FEEDS</th>
-            <th scope = "col">IS VERIFIED</th>
-            <th scope = "col">IS BLOCK</th>
             <th scope = "col">ACTIONS</th>
 
             
@@ -68,9 +65,6 @@ export const DeveloperList = () => {
               <td>{item.memberSince}</td>
               <td>{item.skillLevel}</td>
               <td>{item.reputation}</td>
-              <td>{item.totalFeeds}</td>
-              <td>{item.isVerified?"true":"false"}</td>
-              <td>{item.isBlock?"true":"false"}</td>
 
               <td>
                 <input

@@ -10,22 +10,18 @@ export const FeedUpsert = () => {
   const formEl = useRef();
 
   const [query, setQuery] = useState(state.feed.uref.query);
-  const [feedDate, setFeedDate] = useState(state.feed.uref.feedDate);
-  const [feedTime, setFeedTime] = useState(state.feed.uref.feedTime);
   const [topic, setTopic] = useState(state.feed.uref.topic);
   const [relevance, setRelevance] = useState(state.feed.uref.relevance);
   const [totalComments, setTotalComments] = useState(
     state.feed.uref.totalComments
   );
-  const [likes, setLikes] = useState(state.feed.uref.likes);
+  const [feedDateTime, setFeedDate] = useState(state.feed.uref.feedDateTime);
+
 
   const updateQuery = (e) => setQuery(e.target.value);
-  const updateFeedDate = (e) => setFeedDate(e.target.value);
-  const updateFeedTime = (e) => setFeedTime(e.target.value);
   const updateTopic = (e) => setTopic(e.target.value);
   //   const updateRelevance = (e) => setRelevance(e.target.value);
   //   const updateTotalComments = (e) => setTotalComments(e.target.value);
-  const updateLikes = (e) => setLikes(e.target.value);
 
   const updateRelevance = (e) => {
     console.log(e.target.value);
@@ -42,6 +38,7 @@ export const FeedUpsert = () => {
     const numericValue = e.target.value.replace(/[^\d]/gi, "");
     setTotalComments(numericValue);
   };
+  const updateFeedDateTime = (e) => setFeedDate(e.target.value);
 
   const addNewFeed = (e) => {
     //WRITE LOGIC FOR THE VALIDATION :: FORM_ELEMENT / FORM_TAG
@@ -54,23 +51,20 @@ export const FeedUpsert = () => {
       dispatch(
         createFeedAction({
           query,
-          feedDate,
-          feedTime,
           topic,
           relevance,
           totalComments,
-          likes,
+          feedDateTime,
         })
       );
 
       // clear the form
       setQuery("");
-      setFeedDate("");
-      setFeedTime("");
       setTopic("");
       setRelevance("");
       setTotalComments("");
-      setLikes("");
+      setFeedDate("");
+
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -86,23 +80,21 @@ export const FeedUpsert = () => {
         updateFeedAction({
           id: state.feed.uref.id,
           query,
-          feedDate,
-          feedTime,
           topic,
           relevance,
           totalComments,
-          likes,
+          feedDateTime,
+
         })
       );
 
       // clear the form
       setQuery("");
-      setFeedDate("");
-      setFeedTime("");
       setTopic("");
       setRelevance("");
       setTotalComments("");
-      setLikes("");
+      setFeedDate("");
+
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -133,27 +125,9 @@ export const FeedUpsert = () => {
           />
         </div>
 
-        <div>
-          <input
-            type="date"
-            value={feedDate}
-            onChange={updateFeedDate}
-            className="form-control form-control-lg mb-1"
-            placeholder="Enter the Feed Date"
-            required
-          />
-        </div>
+        
 
-        <div>
-          <input
-            type="time"
-            value={feedTime}
-            onChange={updateFeedTime}
-            className="form-control form-control-lg mb-1"
-            placeholder="Enter the Feed Time"
-            required
-          />
-        </div>
+       
 
         <div>
           <input
@@ -193,11 +167,11 @@ export const FeedUpsert = () => {
 
         <div>
           <input
-            type="Number"
-            value={likes}
-            onChange={updateLikes}
+            type="date"
+            value={feedDateTime}
+            onChange={updateFeedDateTime}
             className="form-control form-control-lg mb-1"
-            placeholder="Enter a Like"
+            placeholder="Enter the Feed Date Time"
             required
           />
         </div>

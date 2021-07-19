@@ -25,6 +25,7 @@ import { AdminMainPage } from './pages/AdminMainPage';
 import { AdminSignIn } from './pages/AdminSignIn';
 import { AdminFeedList } from './pages/AdminFeedList';
 import { AdminResponseList } from './pages/AdminResponseList';
+import { FeedResponsePage } from './pages/FeedResponsePage';
 
 
 
@@ -60,6 +61,7 @@ function App() {
       <Route exact path="/feed-list" component={FeedList} />
       <Route exact path="/response-upsert" component={ResponseUpsert} />
       <Route exact path="/response-list" component={ResponseList} />
+      <Route exact path="/feed-response-page" component={FeedResponsePage} />
 
 
     </>

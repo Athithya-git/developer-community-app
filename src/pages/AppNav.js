@@ -39,6 +39,9 @@ export const AppNav = () => {
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
+        <Nav.Link as={Link} to="/feed-response-page">
+            FEED RESPONSE PAGE
+          </Nav.Link>
           <Nav.Link as={Link} to="/developer-list">
             Developer List
           </Nav.Link>
