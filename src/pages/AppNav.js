@@ -33,38 +33,43 @@ export const AppNav = () => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="#home">DEVELOPER COMMUNITY APP</Navbar.Brand>
+      <Navbar.Brand href="#home"> 🔰 DEVELOPER COMMUNITY APP 🔰</Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-        <Nav.Link as={Link} to="/feed-response-page">
+        <Nav.Link as={Link} to="/feed-response-page" className="  text-light"
+>
             FEED RESPONSE PAGE
           </Nav.Link>
-          <Nav.Link as={Link} to="/developer-list">
-            Developer List
+          <Nav.Link as={Link} to="/developer-list"className="  text-light"
+>
+            DEVELOPER LIST
           </Nav.Link>
-          <Nav.Link onClick={clearDeveloperURef}>Developer Upsert</Nav.Link>
+          <Nav.Link onClick={clearDeveloperURef} className="  text-light"
+>ADD DEVELOPER</Nav.Link>
         </Nav>
-        <Nav.Link as={Link} to="/feed-list">
-            Feed List
+        <Nav.Link as={Link} to="/feed-list" className="  text-light"
+>
+            FEED LIST
           </Nav.Link>
-          <Nav.Link onClick={clearFeedUref1}>Feed Upsert</Nav.Link>
+          <Nav.Link onClick={clearFeedUref1} className="  text-light"
+>ADD FEED</Nav.Link>
           <Nav.Link
             as={Link}
             to="/response-list"
-            className="  text-light mb-2 mr-4"
+            className="  text-light"
           >
-            Response List
+            RESPONSE LIST
           </Nav.Link>
           <Nav.Link
             onClick={clearResponseUref}
-            className="text-light mb-2 mr-2"
+            className="text-light"
           >
-            Response Upsert
+            ADD RESPONSE
           </Nav.Link> 
-          <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
+          <Nav.Link onClick={signOut}>SIGN OUT</Nav.Link>
 
       </Navbar.Collapse>
     </Navbar>

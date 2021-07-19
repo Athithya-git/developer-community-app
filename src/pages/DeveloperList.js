@@ -36,10 +36,14 @@ export const DeveloperList = () => {
 
 
   return (
-    
+    <div style={{ backgroundImage: "url(14.png)",
+  }} 
+    className=" sign-up-bg"
+
+  >
     <div>
       <div className="alert alert-secondary mb-0">
-        <h3> DEVELOPER LIST</h3>
+        <h3> ⭐ DEVELOPER LIST ⭐</h3>
       </div>
       
       <table className="table">
@@ -70,7 +74,7 @@ export const DeveloperList = () => {
                 <input
                   type="button"
                   value="Update ✍️"
-                  className="btn btn-outline-secondary btn-sm  mr-1"
+                  className="btn btn-success btn-sm  mr-1"
                   // onClick={updateRecord} :1
                   onClick={() => updateRecord(item)}
                 />
@@ -80,6 +84,7 @@ export const DeveloperList = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

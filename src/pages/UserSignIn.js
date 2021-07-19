@@ -47,9 +47,12 @@ export const UserSignIn = () => {
   >
     <div className="w-50">
       <h1 className="text-center alert alert-warning ">🔑 Developer Community Sign  🔑</h1>
-
-        <form ref={formEl} className="needs-validation" noValidate>
-          <div>
+      {state.user.progress && (
+        <div className="mx-4 alert alert-success">Operation Success</div>
+      )}
+      <form class="form-horizontal" ref={formEl} className="needs-validation" noValidate>
+          
+<div>
             <input
               type="email"
               placeholder="Enter UserId"
@@ -58,9 +61,18 @@ export const UserSignIn = () => {
               className="form-control form-control-lg mb-2"
               required
             />
+            <div class="invalid-feedback">
+      Please provide a valid user Id.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
           </div>
+          
+          
 
           <div>
+            
             <input
               type="password"
               value={password}
@@ -69,14 +81,21 @@ export const UserSignIn = () => {
               className="form-control form-control-lg mb-2"
               required
             />
+              <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please provide a valid password.
+    </div>
           </div>
-         
+
 
           <div>
             <input
               type="button"
               value="SIGN IN"
               onClick={signInUser}
+
               className="btn btn-info btn-lg w-100"
             />
           </div>

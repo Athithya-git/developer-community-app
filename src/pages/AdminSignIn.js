@@ -58,6 +58,12 @@ export const AdminSignIn = () => {
               className="form-control form-control-lg mb-2"
               required
             />
+            <div class="invalid-feedback">
+      Please provide a valid Admin Id.
+    </div>
+            <div class="valid-feedback">
+      Looks good!
+    </div>
           </div>
 
           <div>
@@ -69,6 +75,12 @@ export const AdminSignIn = () => {
               className="form-control form-control-lg mb-2"
               required
             />
+             <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please provide a valid password.
+    </div>
           </div>
          
 

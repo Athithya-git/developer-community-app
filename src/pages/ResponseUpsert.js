@@ -8,19 +8,19 @@ export const ResponseUpsert = () => {
   const state = useSelector((state) => state);
   console.log(state);
   const formEl = useRef();
-  
-  const [answer, setAnswer] = useState(state.response.uref.answer);
-  const [respDate, setRespDate] = useState(state.response.uref.respDate);
-  const [respTime, setRespTime] = useState(state.response.uref.respTime);
-  const [accuracy, setAccuracy] = useState(state.response.uref.accuracy);
-  const [likes, setLikes] = useState(state.response.uref.likes);
- 
-  const updateAnswer = (e) => setAnswer(e.target.value);
-  const updateRespDate = (e) => setRespDate(e.target.value);
-  const updateRespTime = (e) => setRespTime(e.target.value);
-  const updateAccuracy = (e) => setAccuracy(e.target.value);
+  //const [id, setId] = useState(state.response.uref.id);
+  //const [devId, setDevId] = useState(state.response.uref.devId);
 
-const updateLikes = (e) => setLikes(e.target.value);
+  const [answer, setAnswer] = useState(state.response.uref.answer);
+  const [respDateTime, setRespDateTime] = useState(state.response.uref.respDateTime);
+  const [accuracy, setAccuracy] = useState(state.response.uref.accuracy);
+
+  //const updateId = (e) => setId(e.target.value);
+  //const updateDevId = (e) => setDevId(e.target.value);
+
+  const updateAnswer = (e) => setAnswer(e.target.value);
+  const updateRespDateTime = (e) => setRespDateTime(e.target.value);
+  const updateAccuracy = (e) => setAccuracy(e.target.value);
   // const updateAccuracy = (e) => {
   //   console.log(e.target.value);
 
@@ -48,21 +48,16 @@ const updateLikes = (e) => setLikes(e.target.value);
       dispatch(
         createResponseAction({
          
-          answer,
-          respDate,
-          respTime,
-          accuracy,
-          likes,
+         answer,
+         respDateTime,
+         accuracy,
         })
       );
 
       // clear the form
-      
       setAnswer("");
-      setRespDate("");
-      setRespTime("");
+      setRespDateTime("");
       setAccuracy("");
-      setLikes("");
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -77,22 +72,16 @@ const updateLikes = (e) => setLikes(e.target.value);
       dispatch(
         updateResponseAction({
           respId: state.response.uref.respId,
-          
           answer,
-          respDate,
-          respTime,
+          respDateTime,
           accuracy,
-          likes,
         })
       );
 
       // clear the form
-      
       setAnswer("");
-      setRespDate("");
-      setRespTime("");
+      setRespDateTime("");
       setAccuracy("");
-      setLikes("");
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -109,7 +98,8 @@ const updateLikes = (e) => setLikes(e.target.value);
       )}
 
       <form ref={formEl} className="mx-4 needs-validation " noValidate>
-        <div>
+      
+      <div>
           <input
             type="text"
             value={answer}
@@ -125,10 +115,10 @@ const updateLikes = (e) => setLikes(e.target.value);
         <div>
           <input
             type="date"
-            value={respDate}
-            onChange={updateRespDate}
+            value={respDateTime}
+            onChange={updateRespDateTime}
             className="form-control form-control-lg mb-1"
-            placeholder="Select the Response Date"
+            placeholder="Select the Response Date Time"
             // minLength="3"
             // maxLength="30"
             required
@@ -136,18 +126,7 @@ const updateLikes = (e) => setLikes(e.target.value);
           />
         </div>
 
-        <div>
-          <input
-            type="time"
-            value={respTime}
-            onChange={updateRespTime}
-            className="form-control form-control-lg mb-1"
-            placeholder="Select Response Time"
-            // minLength="3"
-            // maxLength="30"
-            required
-          />
-        </div>
+        
 
 
         <div>
@@ -165,18 +144,6 @@ const updateLikes = (e) => setLikes(e.target.value);
 
         
 
-        <div>
-          <input
-            type="Number"
-            value={likes}
-            onChange={updateLikes}
-            className="form-control form-control-lg mb-1"
-            placeholder="Enter to Like"
-             //minLength="3"
-            // maxLength="100"
-            required
-          />
-        </div>
 
         <div>
           {state.response.uref.respId ? (

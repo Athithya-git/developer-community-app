@@ -46,7 +46,9 @@ export const authenticateUserAction = (payload) => {
       // Will store the success information in storage.
       // TODO will save into the storage
       localStorage.setItem("authSuccess", "1");
-
+      localStorage.setItem("devId", response.data.devId);
+      const devId = localStorage.getItem("devId");
+      console.log(devId);
       // NOT DOING THE ACTIVITY OF 5 SECONDS :: page will be redirected to anohter page.
     } else {
       // INVALID USER :: AUTH FAILS

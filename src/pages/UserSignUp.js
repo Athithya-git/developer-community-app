@@ -56,6 +56,12 @@ export const UserSignUp = () => {
               className="form-control form-control-lg mb-1"
               required
             />
+            <div class="invalid-feedback">
+      Please provide a valid user Id.
+    </div>
+            <div class="valid-feedback">
+      Looks good!
+    </div>
           </div>
 
           <div>
@@ -67,6 +73,12 @@ export const UserSignUp = () => {
               className="form-control form-control-lg mb-1"
               required
             />
+            <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please provide a valid password.
+    </div>
           </div>
 
           

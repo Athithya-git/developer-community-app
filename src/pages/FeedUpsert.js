@@ -10,15 +10,19 @@ export const FeedUpsert = () => {
   const formEl = useRef();
 
   const [query, setQuery] = useState(state.feed.uref.query);
+  const [devId, setDevId] = useState(state.feed.uref.devId);
+
   const [topic, setTopic] = useState(state.feed.uref.topic);
   const [relevance, setRelevance] = useState(state.feed.uref.relevance);
   const [totalComments, setTotalComments] = useState(
     state.feed.uref.totalComments
   );
-  const [feedDateTime, setFeedDate] = useState(state.feed.uref.feedDateTime);
+  //const [feedDateTime, setFeedDate] = useState(state.feed.uref.feedDateTime);
 
 
   const updateQuery = (e) => setQuery(e.target.value);
+  const updateDevId = (e) => setDevId(e.target.value);
+
   const updateTopic = (e) => setTopic(e.target.value);
   //   const updateRelevance = (e) => setRelevance(e.target.value);
   //   const updateTotalComments = (e) => setTotalComments(e.target.value);
@@ -38,7 +42,7 @@ export const FeedUpsert = () => {
     const numericValue = e.target.value.replace(/[^\d]/gi, "");
     setTotalComments(numericValue);
   };
-  const updateFeedDateTime = (e) => setFeedDate(e.target.value);
+  //const updateFeedDateTime = (e) => setFeedDate(e.target.value);
 
   const addNewFeed = (e) => {
     //WRITE LOGIC FOR THE VALIDATION :: FORM_ELEMENT / FORM_TAG
@@ -51,19 +55,19 @@ export const FeedUpsert = () => {
       dispatch(
         createFeedAction({
           query,
+          devId,
           topic,
           relevance,
           totalComments,
-          feedDateTime,
         })
       );
 
       // clear the form
       setQuery("");
+      setDevId("");
       setTopic("");
       setRelevance("");
       setTotalComments("");
-      setFeedDate("");
 
     } else {
       e.stopPropagation();
@@ -80,20 +84,20 @@ export const FeedUpsert = () => {
         updateFeedAction({
           id: state.feed.uref.id,
           query,
+          devId,
           topic,
           relevance,
           totalComments,
-          feedDateTime,
 
         })
       );
 
       // clear the form
       setQuery("");
+      setDevId("");
       setTopic("");
       setRelevance("");
       setTotalComments("");
-      setFeedDate("");
 
     } else {
       e.stopPropagation();
@@ -123,6 +127,22 @@ export const FeedUpsert = () => {
             maxLength="100"
             required
           />
+        </div>
+        <div>
+          <input
+            type="number"
+            value={devId}
+            onChange={updateDevId}
+            className="form-control form-control-lg mb-1"
+            placeholder="Enter  developer Id"
+            required
+          />
+           <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please provide a valid developer Id.
+    </div>
         </div>
 
         
@@ -165,16 +185,7 @@ export const FeedUpsert = () => {
           />
         </div>
 
-        <div>
-          <input
-            type="date"
-            value={feedDateTime}
-            onChange={updateFeedDateTime}
-            className="form-control form-control-lg mb-1"
-            placeholder="Enter the Feed Date Time"
-            required
-          />
-        </div>
+        
 
         <div>
           {state.feed.uref.id ? (

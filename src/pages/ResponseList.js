@@ -42,14 +42,12 @@ export const ResponseList = () => {
       <table className="table">
         <thead className="thead-dark">
           <tr>
-          <th scope="col">
-              <div className="mr-3">RESPONSE ID </div>
-            </th>
+          <th scope="col">RESPONSE ID</th>
+
+             
             <th scope="col">ANSWER</th>
-            <th scope="col">RESPONSE DATE</th>
-            <th scope="col">RESPONSE TIME</th>
+            <th scope="col">RESPONSE DATE TIME</th>
             <th scope="col">ACCURACY</th>
-            <th scope="col">LIKES</th>
             <th scope="col">ACTION</th>
           </tr>
         </thead>
@@ -57,14 +55,14 @@ export const ResponseList = () => {
           {state.response.responseList.map((item, index) => (
             <tr key={index}>
               <th scope="row">{item.respId}</th>
+            
+
               <td>{item.answer}</td>
-              <td>{item.respDate}</td>
-              <td>{item.respTime}</td>
+              <td>{item.respDateTime}</td>
               <td>{item.accuracy}</td>
-              <td>{item.likes}</td>
-               {/* <td>{state.counter}</td> */}
+               
               <td>
-                {/**Step1-update */}
+            
                 <input
                   type="button"
                   value="UPDATE ✍️"

@@ -43,9 +43,9 @@ export const FeedList = () => {
       <table className="table">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">
-              <div className="mr-3">FEED ID</div>
-            </th>
+          <th scope="col"> FEED ID</th>
+          {/* <th scope="col">DEVELOPER ID</th> */}
+
             <th scope="col">QUERY</th>
             <th scope="col">FEED DATE TIME</th>
             <th scope="col">TOPIC</th>
@@ -58,6 +58,8 @@ export const FeedList = () => {
           {state.feed.feedList.map((item, index) => (
             <tr key={index}>
               <th scope="row">{item.id}</th>
+              {/* <td>{item.developer.devId}</td> */}
+
               <td>{item.query}</td>
               <td>{item.feedDateTime}</td>
               <td>{item.topic}</td>
