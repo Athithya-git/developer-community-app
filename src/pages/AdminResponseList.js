@@ -23,36 +23,37 @@ export const AdminResponseList = () => {
 
  
   return (
+    <div style={{ backgroundImage: "url(66.jpg)",
+  }} 
+    className=" sign-up-bg"
+
+  >
     <div>
       <div className="alert alert-secondary mb-0">
-        <h3>RESPONSE LIST</h3>
+        <h3> ⭐RESPONSE LIST ⭐</h3>
       </div>
 
       <table className="table">
         <thead className="thead-dark">
           <tr>
-          <th scope="col">
+          <th  class="bg-info" scope="col">
               <div className="mr-3">RESPONSE ID </div>
             </th>
-            <th scope="col">ANSWER</th>
-            <th scope="col">RESPONSE DATE</th>
-            <th scope="col">RESPONSE TIME</th>
-            <th scope="col">ACCURACY</th>
-            <th scope="col">LIKES</th>
-            <th scope="col">ACTION</th>
+            <th  class="bg-info" scope="col">ANSWER</th>
+            <th  class="bg-info" scope="col">RESPONSE DATE TIME</th>
+            <th  class="bg-info" scope="col">ACCURACY</th>
+            <th  class="bg-info" scope="col">ACTION</th>
           </tr>
         </thead>
         <tbody>
           {state.response.responseList.map((item, index) => (
             <tr key={index}>
-              <th scope="row">{item.respId}</th>
-              <td>{item.answer}</td>
-              <td>{item.respDate}</td>
-              <td>{item.respTime}</td>
-              <td>{item.accuracy}</td>
-              <td>{item.likes}</td>
+              <th  class="bg-info" scope="row">{item.respId}</th>
+              <td  class="bg-info">{item.answer}</td>
+              <td  class="bg-info">{item.respDateTime}</td>
+              <td  class="bg-info">{item.accuracy}</td>
                {/* <td>{state.counter}</td> */}
-              <td>
+              <td  class="bg-info">
                 {/**Step1-update */}
                 
                 <input
@@ -60,13 +61,14 @@ export const AdminResponseList = () => {
                   value="DELETE 🗑️"
                   // onClick={deleteRecord}
                   onClick={() => deleteRecord(item)}
-                  className="btn btn-outline-danger btn-sm ml-1 "
+                  className="btn btn-danger btn-sm ml-1 "
                 />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

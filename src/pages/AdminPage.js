@@ -33,26 +33,27 @@ export const AdminPage = () => {
 
 
   return (
-    
+    <div style={{ backgroundImage: "url(14.png)",
+  }} 
+    className=" sign-up-bg"
+
+  >
     <div>
-        <h1>ADMIN PAGE</h1>
+        <h1> ♦️ ADMIN PAGE ♦️</h1>
       <div className="alert alert-secondary mb-0">
-        <h3> DEVELOPER LIST</h3>
+        <h3> ⭐DEVELOPER LIST ⭐</h3>
       </div>
       
       <table className="table">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">DEVELOPER ID</th>
-            <th scope="col">NAME</th>
-            <th scope="col">USER ID</th>
-            <th scope="col">MEMBER SINCE</th>
-            <th scope = "col">SKILL LEVEL</th>
-            <th scope = "col">REPUTATION</th>
-            <th scope = "col">TOTAL FEEDS</th>
-            <th scope = "col">IS VERIFIED</th>
-            <th scope = "col">IS BLOCK</th>
-            <th scope = "col">ACTIONS</th>
+            <th  class="bg-info">DEVELOPER ID</th>
+            <th class="bg-info">NAME</th>
+            <th  class="bg-info">USER ID</th>
+            <th  class="bg-info">MEMBER SINCE</th>
+            <th  class="bg-info">SKILL LEVEL</th>
+            <th  class="bg-info">REPUTATION</th>
+            <th class="bg-info">ACTIONS</th>
 
             
           </tr>
@@ -60,21 +61,17 @@ export const AdminPage = () => {
         <tbody>
           {state.developer.developerList.map((item, index) => (
             <tr key={index}>
-              <th scope="row">{item.devId}</th>
-              <td>{item.name}</td>
-              <td>{item.users.userId}</td>
-              <td>{item.memberSince}</td>
-              <td>{item.skillLevel}</td>
-              <td>{item.reputation}</td>
-              <td>{item.totalFeeds}</td>
-              <td>{item.isVerified?"true":"false"}</td>
-              <td>{item.isBlock?"true":"false"}</td>
-
-              <td>
+              <th  class="bg-info" scope="row">{item.devId}</th>
+              <td  class="bg-info">{item.name}</td>
+              <td  class="bg-info">{item.users.userId}</td>
+              <td  class="bg-info">{item.memberSince}</td>
+              <td  class="bg-info">{item.skillLevel}</td>
+              <td  class="bg-info">{item.reputation}</td>
+              <td  class="bg-info">
                 <input
                   type="button"
-                  value="Delete"
-                  className="btn btn-outline-secondary btn-sm  mr-1"
+                  value="🗑️DELETE"
+                  className="btn btn-danger btn-sm mb-1 ml-1 mr-2 "
 
                   onClick={() =>deleteRecord1(item)}
                 />
@@ -84,6 +81,7 @@ export const AdminPage = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

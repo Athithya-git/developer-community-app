@@ -35,44 +35,49 @@ export const FeedList = () => {
   };
 
   return (
+    <div style={{ backgroundImage: "url(14.png)",
+  }} 
+    className=" sign-up-bg"
+
+  >
     <div>
       <div className="alert alert-secondary mb-0">
-        <h3>FEED LIST</h3>
+        <h3> ⭐FEED LIST ⭐</h3>
       </div>
 
       <table className="table">
         <thead className="thead-dark">
           <tr>
-          <th scope="col"> FEED ID</th>
+          <th class="bg-info"  scope="col"> FEED ID</th>
           {/* <th scope="col">DEVELOPER ID</th> */}
 
-            <th scope="col">QUERY</th>
-            <th scope="col">FEED DATE TIME</th>
-            <th scope="col">TOPIC</th>
-            <th scope="col">REVELANCE</th>
-            <th scope="col">TOTAL COMMENTS</th>
-            <th scope="col">ACTION</th>
+            <th class="bg-info" scope="col">QUERY</th>
+            <th class="bg-info" scope="col">FEED DATE TIME</th>
+            <th class="bg-info" scope="col">TOPIC</th>
+            <th class="bg-info" scope="col">REVELANCE</th>
+            <th class="bg-info" scope="col">TOTAL COMMENTS</th>
+            <th class="bg-info" scope="col">ACTION</th>
           </tr>
         </thead>
         <tbody>
           {state.feed.feedList.map((item, index) => (
             <tr key={index}>
-              <th scope="row">{item.id}</th>
+              <th class="bg-info" scope="row">{item.id}</th>
               {/* <td>{item.developer.devId}</td> */}
 
-              <td>{item.query}</td>
-              <td>{item.feedDateTime}</td>
-              <td>{item.topic}</td>
-              <td>{item.relevance}</td>
-              <td>{item.totalComments}</td>
+              <td class="bg-info">{item.query}</td>
+              <td class="bg-info" >{item.feedDateTime}</td>
+              <td class="bg-info">{item.topic}</td>
+              <td class="bg-info">{item.relevance}</td>
+              <td class="bg-info">{item.totalComments}</td>
               {/* <td>{state.counter}</td> */}
 
-              <td>
+              <td class="bg-info">
                 {/**Step1-update */}
                 <input
                   type="button"
                   value="Update ✍️ "
-                  className="btn btn-outline-secondary btn-sm mr-1"
+                  className="btn btn-success btn-sm mr-1"
                   onClick={() => updateRecord(item)}
                 />
 
@@ -81,13 +86,14 @@ export const FeedList = () => {
                   value="DELETE 🗑️ "
                   // onClick={deleteRecord}
                   onClick={() => deleteRecord(item)}
-                  className="btn btn-outline-danger btn-sm mb-1 ml-1 mr-2 "
+                  className="btn btn-danger btn-sm mb-1 ml-1 mr-2 "
                 />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

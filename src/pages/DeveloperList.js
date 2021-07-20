@@ -49,13 +49,13 @@ export const DeveloperList = () => {
       <table className="table">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">DEVELOPER ID</th>
-            <th scope="col">NAME</th>
-            <th scope="col">USER ID</th>
-            <th scope="col">MEMBER SINCE</th>
-            <th scope = "col">SKILL LEVEL</th>
-            <th scope = "col">REPUTATION</th>
-            <th scope = "col">ACTIONS</th>
+            <th  class="bg-info" scope="col">DEVELOPER ID</th>
+            <th  class="bg-info" scope="col">NAME</th>
+            <th  class="bg-info" scope="col">USER ID</th>
+            <th  class="bg-info" scope="col">MEMBER SINCE</th>
+            <th  class="bg-info" scope = "col">SKILL LEVEL</th>
+            <th class="bg-info" scope = "col">REPUTATION</th>
+            <th class="bg-info" scope = "col">ACTIONS</th>
 
             
           </tr>
@@ -63,14 +63,14 @@ export const DeveloperList = () => {
         <tbody>
           {state.developer.developerList.map((item, index) => (
             <tr key={index}>
-              <th scope="row">{item.devId}</th>
-              <td>{item.name}</td>
-              <td>{item.users.userId}</td>
-              <td>{item.memberSince}</td>
-              <td>{item.skillLevel}</td>
-              <td>{item.reputation}</td>
+              <th  class="bg-info" scope="row">{item.devId}</th>
+              <td class="bg-info">{item.name}</td>
+              <td  class="bg-info">{item.users.userId}</td>
+              <td  class="bg-info">{item.memberSince}</td>
+              <td  class="bg-info">{item.skillLevel}</td>
+              <td  class="bg-info">{item.reputation}</td>
 
-              <td>
+              <td class="bg-info">
                 <input
                   type="button"
                   value="Update ✍️"

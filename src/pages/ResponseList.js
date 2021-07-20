@@ -34,39 +34,44 @@ export const ResponseList = () => {
   };
 
   return (
+    <div style={{ backgroundImage: "url(14.png)",
+  }} 
+    className=" sign-up-bg"
+
+  >
     <div>
       <div className="alert alert-secondary mb-0">
-        <h3>RESPONSE LIST</h3>
+        <h3> ⭐RESPONSE LIST ⭐</h3>
       </div>
 
       <table className="table">
         <thead className="thead-dark">
           <tr>
-          <th scope="col">RESPONSE ID</th>
+          <th  class="bg-info" scope="col">RESPONSE ID</th>
 
              
-            <th scope="col">ANSWER</th>
-            <th scope="col">RESPONSE DATE TIME</th>
-            <th scope="col">ACCURACY</th>
-            <th scope="col">ACTION</th>
+            <th  class="bg-info" scope="col">ANSWER</th>
+            <th  class="bg-info" scope="col">RESPONSE DATE TIME</th>
+            <th  class="bg-info" scope="col">ACCURACY</th>
+            <th  class="bg-info" scope="col">ACTION</th>
           </tr>
         </thead>
         <tbody>
           {state.response.responseList.map((item, index) => (
             <tr key={index}>
-              <th scope="row">{item.respId}</th>
+              <th  class="bg-info" scope="row">{item.respId}</th>
             
 
-              <td>{item.answer}</td>
-              <td>{item.respDateTime}</td>
-              <td>{item.accuracy}</td>
+              <td  class="bg-info">{item.answer}</td>
+              <td  class="bg-info">{item.respDateTime}</td>
+              <td  class="bg-info">{item.accuracy}</td>
                
-              <td>
+              <td  class="bg-info">
             
                 <input
                   type="button"
                   value="UPDATE ✍️"
-                  className="btn btn-outline-secondary btn-sm mr-1"
+                  className="btn btn-success btn-sm mr-1"
                   onClick={() => updateRecord(item)}
                 />
                 <input
@@ -74,13 +79,14 @@ export const ResponseList = () => {
                   value="DELETE 🗑️"
                   // onClick={deleteRecord}
                   onClick={() => deleteRecord(item)}
-                  className="btn btn-outline-danger btn-sm ml-1 "
+                  className="btn btn-danger btn-sm ml-1 "
                 />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

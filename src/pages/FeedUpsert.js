@@ -106,9 +106,14 @@ export const FeedUpsert = () => {
   };
 
   return (
+    <div style={{ backgroundImage: "url(66.jpg)",
+  }} 
+    className=" sign-up-bg"
+
+  >
     <div>
       <div className="alert alert-secondary">
-        {state.feed.uref.id ? <h5>Feed Update</h5> : <h5>Feed Create</h5>}
+        {state.feed.uref.id ? <h5> 🌟Feed Update 🌟</h5> : <h5> 🌟Feed Create 🌟</h5>}
       </div>
 
       {state.feed.progress && (
@@ -127,6 +132,12 @@ export const FeedUpsert = () => {
             maxLength="100"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid query.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
         <div>
           <input
@@ -160,6 +171,12 @@ export const FeedUpsert = () => {
             maxLength="30"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid topic.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
 
         <div>
@@ -172,6 +189,12 @@ export const FeedUpsert = () => {
             maxLength="2"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid revelance.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
 
         <div>
@@ -183,6 +206,12 @@ export const FeedUpsert = () => {
             placeholder="Enter the number of comments"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid total comments.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
 
         
@@ -193,18 +222,19 @@ export const FeedUpsert = () => {
               type="button"
               onClick={updateFeed}
               value="Update Feed"
-              className="btn btn-lg btn-secondary w-100"
+              className="btn btn-lg btn-info w-100"
             />
           ) : (
             <input
               type="button"
               onClick={addNewFeed}
               value="Add Feed"
-              className="btn btn-lg btn-secondary w-100"
+              className="btn btn-lg btn-info w-100"
             />
           )}
         </div>
       </form>
+    </div>
     </div>
   );
 };

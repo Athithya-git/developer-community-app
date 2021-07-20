@@ -92,12 +92,17 @@ export const DeveloperUpsert = () => {
   };
 
   return (
+    <div style={{ backgroundImage: "url(66.jpg)",
+  }} 
+    className=" sign-up-bg"
+
+  >
     <div>
       <div className="alert alert-secondary">
         {state.developer.uref.devId ? (
-          <h5>DEVELOPER UPDATE</h5>
+          <h5> 🌟DEVELOPER UPDATE 🌟</h5>
         ) : (
-          <h5>DEVELOPER CREATE</h5>
+          <h5> 🌟DEVELOPER CREATE 🌟</h5>
         )}
       </div>
 
@@ -117,6 +122,12 @@ export const DeveloperUpsert = () => {
             maxLength="30"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid name.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
 
         <div>
@@ -130,6 +141,12 @@ export const DeveloperUpsert = () => {
             maxLength="30"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid user Id.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
 
         <div>
@@ -143,6 +160,12 @@ export const DeveloperUpsert = () => {
             maxLength="30"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid skill level.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
 
         <div>
@@ -156,6 +179,12 @@ export const DeveloperUpsert = () => {
             maxLength="30"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid member since.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
         
         
@@ -171,6 +200,12 @@ export const DeveloperUpsert = () => {
             maxLength="30"
             required
           />
+          <div class="invalid-feedback">
+      Please provide a valid reputation.
+    </div>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
         </div>
         
         <div>
@@ -180,7 +215,7 @@ export const DeveloperUpsert = () => {
             type="button"
             onClick={updateDeveloper}
             value="Update Developer"
-            className="btn btn-lg btn-secondary w-100"
+            className="btn btn-lg btn-info w-100"
           />
           
           ) : (
@@ -189,12 +224,13 @@ export const DeveloperUpsert = () => {
             type="button"
             onClick={addNewDeveloper}
             value="Add Developer"
-            className="btn btn-lg btn-secondary w-100"
+            className="btn btn-lg btn-info w-100"
           />
           
           )}
         </div>
       </form>
+    </div>
     </div>
   );
 };
