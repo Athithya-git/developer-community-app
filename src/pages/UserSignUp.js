@@ -10,12 +10,9 @@ export const UserSignUp = () => {
 
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
- 
 
   const updateUserId = (e) => setUserId(e.target.value);
   const updatePassword = (e) => setPassword(e.target.value);
-
-  
 
   const signUpHere = (e) => {
     e.preventDefault();
@@ -25,7 +22,7 @@ export const UserSignUp = () => {
 
     if (isFormValid) {
       // dispatch the call to redux ::for API CALL
-      dispatch(userCreateAction({ userId, password}));
+      dispatch(userCreateAction({ userId, password }));
 
       // clear the form
       setUserId("");
@@ -37,14 +34,13 @@ export const UserSignUp = () => {
   };
 
   return (
-    <div style={{backgroundImage:"url(8.gif)" }}
-   className="sign-up-bg d-flex justify-content-center align-items-center " >
- 
-      
+    <div
+      style={{ backgroundImage: "url(8.gif)" }}
+      className="sign-up-bg d-flex justify-content-center align-items-center "
+    >
       <div className="w-50">
-  
         <h2 className="sign-in-bg text-center alert alert-dark">
-        📃  Developer Community Register Here  📃
+          📃 Developer Community Register Here 📃
         </h2>
         <form ref={formEl} className="needs-validation" noValidate>
           <div>
@@ -56,12 +52,8 @@ export const UserSignUp = () => {
               className="form-control form-control-lg mb-1"
               required
             />
-            <div class="invalid-feedback">
-      Please provide a valid user Id.
-    </div>
-            <div class="valid-feedback">
-      Looks good!
-    </div>
+            <div class="invalid-feedback">Please provide a valid user Id.</div>
+            <div class="valid-feedback">Looks good!</div>
           </div>
 
           <div>
@@ -73,17 +65,9 @@ export const UserSignUp = () => {
               className="form-control form-control-lg mb-1"
               required
             />
-            <div class="valid-feedback">
-      Looks good!
-    </div>
-    <div class="invalid-feedback">
-      Please provide a valid password.
-    </div>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please provide a valid password.</div>
           </div>
-
-          
-
-          
 
           <div>
             <input
@@ -103,12 +87,12 @@ export const UserSignUp = () => {
               />
             </Link>
             <Link to="/main-page">
-      <input
-        type="button"
-        value="GO TO MAIN PAGE"
-        className="btn  btn-lg btn-link w-100"
-      />
-    </Link>
+              <input
+                type="button"
+                value="GO TO MAIN PAGE"
+                className="btn  btn-lg btn-link w-100"
+              />
+            </Link>
           </div>
         </form>
       </div>

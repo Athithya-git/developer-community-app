@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { authenticateUserAction } from "../redux/UserReducer";
 
-
 export const UserSignIn = () => {
   const formEl = useRef();
   const dispatch = useDispatch();
@@ -12,11 +11,8 @@ export const UserSignIn = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
-
   const updateUserId = (e) => setUserId(e.target.value);
   const updatePassword = (e) => setPassword(e.target.value);
-  
-
 
   const signInUser = (e) => {
     e.preventDefault();
@@ -40,24 +36,27 @@ export const UserSignIn = () => {
   }
 
   return (
-    <div style={{ backgroundImage: "url(3.jpeg)",
-  }} 
-    className=" sign-up-bg bg-dark d-flex justify-content-center align-items-center"
-
-  >
-    
-    <div className="w-50">
-      <h1 className="text-center alert alert-warning ">🔑 Developer Community Sign  🔑</h1>
-      {state.user.progress && (
-        <div className="mx-4 alert alert-success">Operation Success</div>
-      )}
-      <form class="form-horizontal" ref={formEl} className="needs-validation" noValidate>
-      <div>
-   {
-      state.user.authFailure===true && (<h5> Invalid Crendentials</h5>)
-    }
-   </div>  
-<div>
+    <div
+      style={{ backgroundImage: "url(3.jpeg)" }}
+      className=" sign-up-bg bg-dark d-flex justify-content-center align-items-center"
+    >
+      <div className="w-50">
+        <h1 className="text-center alert alert-warning ">
+          🔑 Developer Community Sign 🔑
+        </h1>
+        {state.user.progress && (
+          <div className="mx-4 alert alert-success">Operation Success</div>
+        )}
+        <form
+          class="form-horizontal"
+          ref={formEl}
+          className="needs-validation"
+          noValidate
+        >
+          <div>
+            {state.user.authFailure === true && <h5> Invalid Crendentials</h5>}
+          </div>
+          <div>
             <input
               type="email"
               placeholder="Enter UserId"
@@ -66,18 +65,11 @@ export const UserSignIn = () => {
               className="form-control form-control-lg mb-2"
               required
             />
-            <div class="invalid-feedback">
-      Please provide a valid user Id.
-    </div>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
+            <div class="invalid-feedback">Please provide a valid user Id.</div>
+            <div class="valid-feedback">Looks good!</div>
           </div>
-          
-          
 
           <div>
-            
             <input
               type="password"
               value={password}
@@ -86,21 +78,15 @@ export const UserSignIn = () => {
               className="form-control form-control-lg mb-2"
               required
             />
-              <div class="valid-feedback">
-      Looks good!
-    </div>
-    <div class="invalid-feedback">
-      Please provide a valid password.
-    </div>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please provide a valid password.</div>
           </div>
-
 
           <div>
             <input
               type="button"
               value="SIGN IN"
               onClick={signInUser}
-
               className="btn btn-info btn-lg w-100"
             />
           </div>
@@ -114,12 +100,12 @@ export const UserSignIn = () => {
               />
             </Link>
             <Link to="/main-page">
-      <input
-        type="button"
-        value="GO TO MAIN PAGE"
-        className="btn  btn-link w-100"
-      />
-    </Link>
+              <input
+                type="button"
+                value="GO TO MAIN PAGE"
+                className="btn  btn-link w-100"
+              />
+            </Link>
           </div>
         </form>
       </div>

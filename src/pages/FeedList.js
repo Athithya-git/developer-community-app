@@ -75,23 +75,24 @@ export const FeedList = () => {
   };
 
   return (
-    <div style={{ backgroundImage: "url(14.png)",
-  }} 
-    className=" sign-up-bg"
-
-  >
-    <div>
-      <div className="alert alert-secondary mb-0">
-        <h3> ⭐FEED LIST ⭐</h3>
-      </div>
-      <form ref={formEl} className="mx-4 needs-validation" noValidate>
+    <div style={{ backgroundImage: "url(14.png)" }} className=" sign-up-bg">
+      <div>
+        <div className="alert alert-secondary mb-1">
+          <h3> ⭐FEED LIST ⭐</h3>
+        </div>
+        <form
+          ref={formEl}
+          className="mx-4 needs-validation form-inline"
+          noValidate
+        >
           <div>
             <input
               type="number"
               placeholder="Enter your id"
+              style={{ width: "200px" }}
               value={id}
               onChange={updateId}
-              className="form-control form-control-sm mb-1 mr-5 "
+              className="form-control form-control-sm mb-2 mr-1 "
               required
             />
           </div>
@@ -100,14 +101,19 @@ export const FeedList = () => {
           </div>
         </form>
 
-        <form ref={formEl} className="mx-4 needs-validation" noValidate>
+        <form
+          ref={formEl}
+          className="mx-4 needs-validation form-inline"
+          noValidate
+        >
           <div>
             <input
               type="text"
               placeholder="Enter your topic"
+              style={{ width: "200px" }}
               value={topic}
               onChange={updateTopic}
-              className="form-control form-control-sm mb-1 mr-5 "
+              className="form-control form-control-sm mb-2 mr-1 "
               minLength="3"
               maxLength="30"
               required
@@ -121,55 +127,72 @@ export const FeedList = () => {
             />
           </div>
         </form>
-      <table className="table">
-        <thead className="thead-dark">
-          <tr>
-          <th class="bg-info"  scope="col"> FEED ID</th>
-          {/* <th scope="col">DEVELOPER ID</th> */}
+        <table className="table">
+          <thead className="thead-dark">
+            <tr>
+              <th class="bg-info" scope="col">
+                {" "}
+                FEED ID
+              </th>
+              {/* <th scope="col">DEVELOPER ID</th> */}
 
-            <th class="bg-info" scope="col">QUERY</th>
-            <th class="bg-info" scope="col">FEED DATE TIME</th>
-            <th class="bg-info" scope="col">TOPIC</th>
-            <th class="bg-info" scope="col">REVELANCE</th>
-            <th class="bg-info" scope="col">TOTAL COMMENTS</th>
-            <th class="bg-info" scope="col">ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          {state.feed.feedList.map((item, index) => (
-            <tr key={index}>
-              <th class="bg-info" scope="row">{item.id}</th>
-              {/* <td>{item.developer.devId}</td> */}
-
-              <td class="bg-info">{item.query}</td>
-              <td class="bg-info" >{item.feedDateTime}</td>
-              <td class="bg-info">{item.topic}</td>
-              <td class="bg-info">{item.relevance}</td>
-              <td class="bg-info">{item.totalComments}</td>
-              {/* <td>{state.counter}</td> */}
-
-              <td class="bg-info">
-                {/**Step1-update */}
-                <input
-                  type="button"
-                  value="Update ✍️ "
-                  className="btn btn-success btn-sm mr-1"
-                  onClick={() => updateRecord(item)}
-                />
-
-                <input
-                  type="button"
-                  value="DELETE 🗑️ "
-                  // onClick={deleteRecord}
-                  onClick={() => deleteRecord(item)}
-                  className="btn btn-danger btn-sm mb-1 ml-1 mr-2 "
-                />
-              </td>
+              <th class="bg-info" scope="col">
+                QUERY
+              </th>
+              <th class="bg-info" scope="col">
+                FEED DATE TIME
+              </th>
+              <th class="bg-info" scope="col">
+                TOPIC
+              </th>
+              <th class="bg-info" scope="col">
+                REVELANCE
+              </th>
+              <th class="bg-info" scope="col">
+                TOTAL COMMENTS
+              </th>
+              <th class="bg-info" scope="col">
+                ACTION
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {state.feed.feedList.map((item, index) => (
+              <tr key={index}>
+                <th class="bg-info" scope="row">
+                  {item.id}
+                </th>
+                {/* <td>{item.developer.devId}</td> */}
+
+                <td class="bg-info">{item.query}</td>
+                <td class="bg-info">{item.feedDateTime}</td>
+                <td class="bg-info">{item.topic}</td>
+                <td class="bg-info">{item.relevance}</td>
+                <td class="bg-info">{item.totalComments}</td>
+                {/* <td>{state.counter}</td> */}
+
+                <td class="bg-info">
+                  {/**Step1-update */}
+                  <input
+                    type="button"
+                    value="Update ✍️ "
+                    className="btn btn-success btn-sm mr-1"
+                    onClick={() => updateRecord(item)}
+                  />
+
+                  <input
+                    type="button"
+                    value="DELETE 🗑️ "
+                    // onClick={deleteRecord}
+                    onClick={() => deleteRecord(item)}
+                    className="btn btn-danger btn-sm mb-1 ml-1 mr-2 "
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

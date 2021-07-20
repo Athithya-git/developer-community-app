@@ -19,7 +19,7 @@ export const AppNav = () => {
   };
 
   const clearDeveloperURef = () => {
-    dispatch(updateRenderAction({}));    
+    dispatch(updateRenderAction({}));
     history.push("/developer-upsert");
   };
   const clearFeedUref1 = () => {
@@ -39,38 +39,29 @@ export const AppNav = () => {
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-        <Nav.Link as={Link} to="/feed-response-page" className="  text-light"
->
+          <Nav.Link as={Link} to="/feed-response-page" className="  text-light">
             FEED RESPONSE PAGE
           </Nav.Link>
-          <Nav.Link as={Link} to="/developer-list"className="  text-light"
->
+          <Nav.Link as={Link} to="/developer-list" className="  text-light">
             DEVELOPER LIST
           </Nav.Link>
-          <Nav.Link onClick={clearDeveloperURef} className="  text-light"
->ADD DEVELOPER</Nav.Link>
+          <Nav.Link onClick={clearDeveloperURef} className="  text-light">
+            ADD DEVELOPER
+          </Nav.Link>
         </Nav>
-        <Nav.Link as={Link} to="/feed-list" className="  text-light"
->
-            FEED LIST
-          </Nav.Link>
-          <Nav.Link onClick={clearFeedUref1} className="  text-light"
->ADD FEED</Nav.Link>
-          <Nav.Link
-            as={Link}
-            to="/response-list"
-            className="  text-light"
-          >
-            RESPONSE LIST
-          </Nav.Link>
-          <Nav.Link
-            onClick={clearResponseUref}
-            className="text-light"
-          >
-            ADD RESPONSE
-          </Nav.Link> 
-          <Nav.Link onClick={signOut}>SIGN OUT</Nav.Link>
-
+        <Nav.Link as={Link} to="/feed-list" className="  text-light">
+          FEED LIST
+        </Nav.Link>
+        <Nav.Link onClick={clearFeedUref1} className="  text-light">
+          ADD FEED
+        </Nav.Link>
+        <Nav.Link as={Link} to="/response-list" className="  text-light">
+          RESPONSE LIST
+        </Nav.Link>
+        <Nav.Link onClick={clearResponseUref} className="text-light">
+          ADD RESPONSE
+        </Nav.Link>
+        <Nav.Link onClick={signOut}>SIGN OUT</Nav.Link>
       </Navbar.Collapse>
     </Navbar>
   );

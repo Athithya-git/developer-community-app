@@ -34,59 +34,64 @@ export const ResponseList = () => {
   };
 
   return (
-    <div style={{ backgroundImage: "url(14.png)",
-  }} 
-    className=" sign-up-bg"
+    <div style={{ backgroundImage: "url(14.png)" }} className=" sign-up-bg">
+      <div>
+        <div className="alert alert-secondary mb-0">
+          <h3> ⭐RESPONSE LIST ⭐</h3>
+        </div>
 
-  >
-    <div>
-      <div className="alert alert-secondary mb-0">
-        <h3> ⭐RESPONSE LIST ⭐</h3>
-      </div>
+        <table className="table">
+          <thead className="thead-dark">
+            <tr>
+              <th class="bg-info" scope="col">
+                RESPONSE ID
+              </th>
 
-      <table className="table">
-        <thead className="thead-dark">
-          <tr>
-          <th  class="bg-info" scope="col">RESPONSE ID</th>
-
-             
-            <th  class="bg-info" scope="col">ANSWER</th>
-            <th  class="bg-info" scope="col">RESPONSE DATE TIME</th>
-            <th  class="bg-info" scope="col">ACCURACY</th>
-            <th  class="bg-info" scope="col">ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          {state.response.responseList.map((item, index) => (
-            <tr key={index}>
-              <th  class="bg-info" scope="row">{item.respId}</th>
-            
-
-              <td  class="bg-info">{item.answer}</td>
-              <td  class="bg-info">{item.respDateTime}</td>
-              <td  class="bg-info">{item.accuracy}</td>
-               
-              <td  class="bg-info">
-            
-                <input
-                  type="button"
-                  value="UPDATE ✍️"
-                  className="btn btn-success btn-sm mr-1"
-                  onClick={() => updateRecord(item)}
-                />
-                <input
-                  type="button"
-                  value="DELETE 🗑️"
-                  // onClick={deleteRecord}
-                  onClick={() => deleteRecord(item)}
-                  className="btn btn-danger btn-sm ml-1 "
-                />
-              </td>
+              <th class="bg-info" scope="col">
+                ANSWER
+              </th>
+              <th class="bg-info" scope="col">
+                RESPONSE DATE TIME
+              </th>
+              <th class="bg-info" scope="col">
+                ACCURACY
+              </th>
+              <th class="bg-info" scope="col">
+                ACTION
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {state.response.responseList.map((item, index) => (
+              <tr key={index}>
+                <th class="bg-info" scope="row">
+                  {item.respId}
+                </th>
+
+                <td class="bg-info">{item.answer}</td>
+                <td class="bg-info">{item.respDateTime}</td>
+                <td class="bg-info">{item.accuracy}</td>
+
+                <td class="bg-info">
+                  <input
+                    type="button"
+                    value="UPDATE ✍️"
+                    className="btn btn-success btn-sm mr-1"
+                    onClick={() => updateRecord(item)}
+                  />
+                  <input
+                    type="button"
+                    value="DELETE 🗑️"
+                    // onClick={deleteRecord}
+                    onClick={() => deleteRecord(item)}
+                    className="btn btn-danger btn-sm ml-1 "
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -9,7 +9,8 @@ const initState = {
 // ACTION TYPES :: EMPLOYEE :: ENITY1
 const PROGRESS_ACTION_TYPE = "PROGRESS_ACTION_TYPE";
 const DEVELOPER_GET_ALL_ACTION_TYPE = "DEVELOPER_GET_ALL_ACTION_TYPE";
-const DEVELOPER_UPDATE_RENDER_ACTION_TYPE = "DEVELOPER_UPDATE_RENDER_ACTION_TYPE";
+const DEVELOPER_UPDATE_RENDER_ACTION_TYPE =
+  "DEVELOPER_UPDATE_RENDER_ACTION_TYPE";
 
 // ACTIONS
 export const getAllDeveloperAction = () => {
@@ -18,7 +19,7 @@ export const getAllDeveloperAction = () => {
     const url = `http://localhost:8080/api/v1/developers`;
     const response = await axios.get(url);
 
-     console.log(response);
+    console.log(response);
 
     // UI UPDATE
     dispatch({ type: "DEVELOPER_GET_ALL_ACTION_TYPE", payload: response.data });
@@ -72,8 +73,8 @@ export function DeveloperReducer(state = initState, action) {
       return { ...state, developerList: action.payload };
     case PROGRESS_ACTION_TYPE:
       return { ...state, progress: action.payload };
-      case DEVELOPER_UPDATE_RENDER_ACTION_TYPE:
-        return { ...state, uref: action.payload };
+    case DEVELOPER_UPDATE_RENDER_ACTION_TYPE:
+      return { ...state, uref: action.payload };
     default:
       return state;
   }

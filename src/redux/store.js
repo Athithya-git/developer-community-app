@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   developer: DeveloperReducer,
   feed: FeedReducer,
   response: ResponseReducer,
-admin:AdminReducer,
+  admin: AdminReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

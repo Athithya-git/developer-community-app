@@ -81,8 +81,8 @@ export function ResponseReducer(state = initState, action) {
       return { ...state, responseList: action.payload };
     case PROGRESS_ACTION_TYPE:
       return { ...state, progress: action.payload };
-      case Response_UPDATE_RENDER_ACTION_TYPE:
-        return { ...state, uref: action.payload };
+    case Response_UPDATE_RENDER_ACTION_TYPE:
+      return { ...state, uref: action.payload };
     default:
       return state;
   }

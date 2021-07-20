@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createResponseAction, updateResponseAction } from "../redux/ResponseReducer";
+import {
+  createResponseAction,
+  updateResponseAction,
+} from "../redux/ResponseReducer";
 
 export const ResponseUpsert = () => {
   const dispatch = useDispatch();
@@ -12,7 +15,9 @@ export const ResponseUpsert = () => {
   //const [devId, setDevId] = useState(state.response.uref.devId);
 
   const [answer, setAnswer] = useState(state.response.uref.answer);
-  const [respDateTime, setRespDateTime] = useState(state.response.uref.respDateTime);
+  const [respDateTime, setRespDateTime] = useState(
+    state.response.uref.respDateTime
+  );
   const [accuracy, setAccuracy] = useState(state.response.uref.accuracy);
 
   //const updateId = (e) => setId(e.target.value);
@@ -47,10 +52,9 @@ export const ResponseUpsert = () => {
     if (isFormValid) {
       dispatch(
         createResponseAction({
-         
-         answer,
-         respDateTime,
-         accuracy,
+          answer,
+          respDateTime,
+          accuracy,
         })
       );
 
@@ -88,105 +92,80 @@ export const ResponseUpsert = () => {
     }
   };
   return (
-    <div style={{ backgroundImage: "url(66.jpg)",
-  }} 
-    className=" sign-up-bg"
-
-  >
-    <div>
-      <div className="alert alert-secondary">
-        {state.response.uref.respId ? (<h5> 🌟 RESPONSE UPDATE 🌟</h5>) : (<h5> 🌟 RESPONSE CREATE 🌟</h5>)}
-      </div>
-
-      {state.response.progress && (
-        <div className="mx-4 alert alert-success">Operation Success</div>
-      )}
-
-      <form ref={formEl} className="mx-4 needs-validation " noValidate>
-      
+    <div style={{ backgroundImage: "url(66.jpg)" }} className=" sign-up-bg">
       <div>
-          <input
-            type="text"
-            value={answer}
-            onChange={updateAnswer}
-            className="form-control form-control-lg mb-1"
-            placeholder="Enter the answer"
-            minLength="5"
-            maxLength="100"
-            required
-          />
-          <div class="invalid-feedback">
-      Please provide a valid answer.
-    </div>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
-        </div>
-
-        <div>
-          <input
-            type="date"
-            value={respDateTime}
-            onChange={updateRespDateTime}
-            className="form-control form-control-lg mb-1"
-            placeholder="Select the Response Date Time"
-            // minLength="3"
-            // maxLength="30"
-            required
-            required
-          />
-          <div class="invalid-feedback">
-      Please provide a valid date time.
-    </div>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
-        </div>
-
-        
-
-
-        <div>
-          <input
-            type="text"
-            value={accuracy}
-            onChange={updateAccuracy}
-            className="form-control form-control-lg mb-1"
-            placeholder="Enter the Accuracy percentage"
-            // minLength="6"
-            maxLength="3"
-            required
-          />
-          <div class="invalid-feedback">
-      Please provide a valid accuracy.
-    </div>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
-        </div>
-
-        
-
-
-        <div>
+        <div className="alert alert-secondary">
           {state.response.uref.respId ? (
-            <input
-              type="button"
-              onClick={updateResponse}
-              value="Update Response"
-              className="btn btn-lg btn-info w-100"
-            />
+            <h5> 🌟 RESPONSE UPDATE 🌟</h5>
           ) : (
-            <input
-              type="button"
-              onClick={addNewResponse}
-              value="Add Response"
-              className="btn btn-lg btn-info w-100"
-            />
+            <h5> 🌟 RESPONSE CREATE 🌟</h5>
           )}
         </div>
-      </form>
-    </div>
+
+        {state.response.progress && (
+          <div className="mx-4 alert alert-success">Operation Success</div>
+        )}
+
+        <form ref={formEl} className="mx-4 needs-validation " noValidate>
+          <div>
+            <input
+              type="text"
+              value={answer}
+              onChange={updateAnswer}
+              className="form-control form-control-lg mb-1"
+              placeholder="Enter the answer"
+              minLength="5"
+              maxLength="100"
+              required
+            />
+            <div class="invalid-feedback">Please provide a valid answer.</div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+
+          <div>
+            <input
+              type="datetime-local"
+              value={respDateTime}
+              onChange={updateRespDateTime}
+              className="form-control form-control-lg mb-1"
+              placeholder="Select the Response Date Time"
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              value={accuracy}
+              onChange={updateAccuracy}
+              className="form-control form-control-lg mb-1"
+              placeholder="Enter the Accuracy percentage"
+              // minLength="6"
+              maxLength="3"
+              required
+            />
+            <div class="invalid-feedback">Please provide a valid accuracy.</div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+
+          <div>
+            {state.response.uref.respId ? (
+              <input
+                type="button"
+                onClick={updateResponse}
+                value="Update Response"
+                className="btn btn-lg btn-info w-100"
+              />
+            ) : (
+              <input
+                type="button"
+                onClick={addNewResponse}
+                value="Add Response"
+                className="btn btn-lg btn-info w-100"
+              />
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
