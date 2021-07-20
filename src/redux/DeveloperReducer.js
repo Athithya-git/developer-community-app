@@ -18,7 +18,7 @@ export const getAllDeveloperAction = () => {
     const url = `http://localhost:8080/api/v1/developers`;
     const response = await axios.get(url);
 
-    // console.log(response);
+     console.log(response);
 
     // UI UPDATE
     dispatch({ type: "DEVELOPER_GET_ALL_ACTION_TYPE", payload: response.data });

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -6,16 +6,56 @@ import {
   deleteFeedAction,
   getAllFeedAction,
   updateRenderAction1,
+  getFeedByIdAction,
+  getFeedByTopicAction,
 } from "../redux/FeedReducer";
 
 export const FeedList = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  const formEl = useRef();
+
+  const [id, setId] = useState(state.feed.uref.id);
+  const updateId = (e) => setId(e.target.value);
+
+  const [topic, setTopic] = useState(state.feed.uref.topic);
+  const updateTopic = (e) => setTopic(e.target.value);
 
   useEffect(() => {
     dispatch(getAllFeedAction());
   }, []);
+  const getFeedByIdRecord = (e) => {
+    e.preventDefault();
+    const isFormValid = formEl.current.checkValidity();
+    if (isFormValid) {
+      dispatch(
+        getFeedByIdAction({
+          id,
+        })
+      );
+      setId("");
+    } else {
+      e.stopPropagation();
+      formEl.current.classList.add("was-validated");
+    }
+  };
+
+  const getFeedByTopicRecord = (e) => {
+    e.preventDefault();
+    const isFormValid = formEl.current.checkValidity();
+    if (isFormValid) {
+      dispatch(
+        getFeedByTopicAction({
+          topic,
+        })
+      );
+      setTopic("");
+    } else {
+      e.stopPropagation();
+      formEl.current.classList.add("was-validated");
+    }
+  };
 
   const deleteRecord = (item) => {
     console.log("DELETE RECORD", item.id);
@@ -44,7 +84,43 @@ export const FeedList = () => {
       <div className="alert alert-secondary mb-0">
         <h3> ⭐FEED LIST ⭐</h3>
       </div>
+      <form ref={formEl} className="mx-4 needs-validation" noValidate>
+          <div>
+            <input
+              type="number"
+              placeholder="Enter your id"
+              value={id}
+              onChange={updateId}
+              className="form-control form-control-sm mb-1 mr-5 "
+              required
+            />
+          </div>
+          <div>
+            <input type="button" value="Search" onClick={getFeedByIdRecord} />
+          </div>
+        </form>
 
+        <form ref={formEl} className="mx-4 needs-validation" noValidate>
+          <div>
+            <input
+              type="text"
+              placeholder="Enter your topic"
+              value={topic}
+              onChange={updateTopic}
+              className="form-control form-control-sm mb-1 mr-5 "
+              minLength="3"
+              maxLength="30"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="button"
+              value="Search"
+              onClick={getFeedByTopicRecord}
+            />
+          </div>
+        </form>
       <table className="table">
         <thead className="thead-dark">
           <tr>

@@ -45,13 +45,18 @@ export const UserSignIn = () => {
     className=" sign-up-bg bg-dark d-flex justify-content-center align-items-center"
 
   >
+    
     <div className="w-50">
       <h1 className="text-center alert alert-warning ">🔑 Developer Community Sign  🔑</h1>
       {state.user.progress && (
         <div className="mx-4 alert alert-success">Operation Success</div>
       )}
       <form class="form-horizontal" ref={formEl} className="needs-validation" noValidate>
-          
+      <div>
+   {
+      state.user.authFailure===true && (<h5> Invalid Crendentials</h5>)
+    }
+   </div>  
 <div>
             <input
               type="email"

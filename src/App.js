@@ -36,7 +36,7 @@ function App() {
   
   const authSuccessFromStorage = localStorage.getItem("authSuccess");
   if (authSuccessFromStorage !== "1") {
-    history.push("/main-page");
+    history.push("/user-signin");
   }
   return (
     <>
